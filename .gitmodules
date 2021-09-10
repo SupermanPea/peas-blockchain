@@ -1,8 +1,0 @@
-[submodule "peas-blockchain-gui"]
-	path = peas-blockchain-gui
-	url = https://github.com/Peas-Network/peas-blockchain-gui.git
-	branch = pools
-[submodule "mozilla-ca"]
-	path = mozilla-ca
-	url = https://github.com/Peas-Network/mozilla-ca.git
-        branch = main
