@@ -4,7 +4,7 @@ min_mainnet_k_size: 32
 # 在ping_间隔秒后向所有对等方发送ping
 ping_interval: 120
 self_hostname: &self_hostname "localhost"
-daemon_port: 55400
+daemon_port: 55300
 inbound_rate_limit_percent: 100
 outbound_rate_limit_percent: 30
 
@@ -12,7 +12,7 @@ network_overrides: &network_overrides
   constants:
     mainnet:
       NETWORK_TYPE: 0
-      GENESIS_CHALLENGE: ccd5bb71183532bff220ba46c268991a3ff07eb358e8255a65c30a2dce0e5fbb
+      GENESIS_CHALLENGE: ca7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015af
       GENESIS_PRE_FARM_POOL_PUZZLE_HASH: "d23da14695a188ae5708dd152263c4db883eb27edeb936178d4d988b8f3ce5fc"
       GENESIS_PRE_FARM_FARMER_PUZZLE_HASH: "3d8765d3a597ec1d99663f6c9816d915b9f68613ac94009884c4addaefcce6af"
     testnet0:
@@ -125,15 +125,15 @@ logging: &logging
 harvester:
   # The harvester server (if run) will run on this port
   # harvester服务器（如果运行）将在此端口上运行
-  port: 8448
+  port: 8338
   farmer_peer:
     host: *self_hostname
-    port: 84471
+    port: 8337
 
   # If True, starts an RPC server at the following port
     # 如果为True，则在以下端口启动RPC服务器
   start_rpc_server: True
-  rpc_port: 8560
+  rpc_port: 8230
   num_threads: 30
   plots_refresh_parameter:
     interval_seconds: 120 # The interval in seconds to refresh the plot file manager
@@ -176,7 +176,7 @@ pool:
 farmer:
   # The farmer server (if run) will run on this port
   #  farmer服务器（如果运行）将在此端口上运行
-  port: 84471
+  port: 8337
   # The farmer will attempt to connect to this full node and harvester
   # 农民将尝试连接到此完整节点和收割机
   full_node_peer:
@@ -184,7 +184,7 @@ farmer:
     port: 3838
   harvester_peer:
     host: *self_hostname
-    port: 8448
+    port: 8338
 
   pool_public_keys: []
 
@@ -194,7 +194,7 @@ farmer:
   # If True, starts an RPC server at the following port
   #如果为True，则在以下端口启动RPC服务器
   start_rpc_server: True
-  rpc_port: 8559
+  rpc_port: 8359
 
   # To send a share to a pool, a proof of space must have required_iters less than this number
   #要将共享发送到池，空间证明所需的文件数必须小于此数字
@@ -225,7 +225,7 @@ timelord_launcher:
 timelord:
   # The timelord server (if run) will run on this port
 ##################timelord服务器（如果运行）将在此端口上运行########################
-  port: 84461
+  port: 8336
   # Provides a list of VDF clients expected to connect to this timelord.
    #  提供预期连接到此timelord的VDF客户端的列表。
   # For each client, an IP is provided, together with the estimated iterations per second.
@@ -303,7 +303,7 @@ full_node:
   # If True, starts an RPC server at the following port
   # 如果为True，则在以下端口启动RPC服务器
   start_rpc_server: True
-  rpc_port: 8555
+  rpc_port: 8333
 
   # Use UPnP to attempt to allow other full nodes to reach your node behind a gateway
 #使用UPnP尝试允许其他完整节点到达网关后面的节点
@@ -372,16 +372,16 @@ full_node:
     - "dns-introducer.peas.net"
   farmer_peer:
       host: *self_hostname
-      port: 3837
+      port: 8337
   timelord_peer:
       host: *self_hostname
-      port: 8446
+      port: 8336
   introducer_peer:
       host: introducer.peas.net  # Peas AWS introducer IPv4/IPv6
       port: 3838
   wallet_peer:
     host: *self_hostname
-    port: 3839
+    port: 8339
   logging: *logging
   network_overrides: *network_overrides
   selected_network: *selected_network
@@ -395,11 +395,11 @@ full_node:
 ui:
    # The ui node server (if run) will run on this port
    #ui节点服务器（如果运行）将在此端口上运行
-  port: 8222
+  port: 8322
 
   # Which port to use to communicate with the full node
   #使用哪个端口与完整节点通信
-  rpc_port: 8555
+  rpc_port: 8333
 
   # This SSH key is for the ui SSH server
   ssh_filename: config/ssh_host_key
@@ -412,14 +412,14 @@ ui:
   # defaults to the one running locally with its private keys
     # 默认为使用其私钥在本地运行的
   daemon_host: *self_hostname
-  daemon_port: 55400
+  daemon_port: 55300
   daemon_ssl:
     private_crt: config/ssl/daemon/private_daemon.crt
     private_key: config/ssl/daemon/private_daemon.key
 
 introducer:
   host: *self_hostname
-  port: 8445
+  port: 8335
   max_peers_to_send: 20
   # The introducer will only return peers who it has seen in the last
   # 介绍人只会返回在过去几年中见过的同龄人
@@ -435,8 +435,8 @@ introducer:
     public_key:  "config/ssl/full_node/public_full_node.key"
 
 wallet:
-  port: 8449
-  rpc_port: 9256
+  port: 8339
+  rpc_port: 9356
 
   enable_profiler: False
 
