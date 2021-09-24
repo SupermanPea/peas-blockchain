@@ -7,19 +7,19 @@ from typing import List, Optional
 
 import pytest
 
-from peas.consensus.blockchain import ReceiveBlockResult
-from peas.consensus.multiprocess_validation import PreValidationResult
-from peas.consensus.pot_iterations import is_overflow_block
-from peas.full_node.full_node_store import FullNodeStore
-from peas.full_node.signage_point import SignagePoint
-from peas.protocols import timelord_protocol
-from peas.protocols.timelord_protocol import NewInfusionPointVDF
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.unfinished_block import UnfinishedBlock
-from peas.util.block_cache import BlockCache
+from weed.consensus.blockchain import ReceiveBlockResult
+from weed.consensus.multiprocess_validation import PreValidationResult
+from weed.consensus.pot_iterations import is_overflow_block
+from weed.full_node.full_node_store import FullNodeStore
+from weed.full_node.signage_point import SignagePoint
+from weed.protocols import timelord_protocol
+from weed.protocols.timelord_protocol import NewInfusionPointVDF
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.unfinished_block import UnfinishedBlock
+from weed.util.block_cache import BlockCache
 from tests.block_tools import get_signage_point, create_block_tools
-from peas.util.hash import std_hash
-from peas.util.ints import uint8, uint32, uint64, uint128
+from weed.util.hash import std_hash
+from weed.util.ints import uint8, uint32, uint64, uint128
 from tests.core.fixtures import default_1000_blocks, create_blockchain  # noqa: F401
 from tests.setup_nodes import test_constants as test_constants_original
 from tests.util.keyring import TempKeyring

@@ -2,15 +2,15 @@ from typing import Dict
 
 import blspy
 
-from peas.full_node.bundle_tools import simple_solution_generator
-from peas.types.blockchain_format.coin import Coin
-from peas.types.blockchain_format.program import Program
-from peas.types.coin_spend import CoinSpend
-from peas.types.condition_opcodes import ConditionOpcode
-from peas.types.generator_types import BlockGenerator
-from peas.types.spend_bundle import SpendBundle
-from peas.util.ints import uint64
-from peas.wallet.puzzles.p2_delegated_puzzle_or_hidden_puzzle import puzzle_for_pk, solution_for_conditions
+from weed.full_node.bundle_tools import simple_solution_generator
+from weed.types.blockchain_format.coin import Coin
+from weed.types.blockchain_format.program import Program
+from weed.types.coin_spend import CoinSpend
+from weed.types.condition_opcodes import ConditionOpcode
+from weed.types.generator_types import BlockGenerator
+from weed.types.spend_bundle import SpendBundle
+from weed.util.ints import uint64
+from weed.wallet.puzzles.p2_delegated_puzzle_or_hidden_puzzle import puzzle_for_pk, solution_for_conditions
 
 GROUP_ORDER = 0x73EDA753299D7D483339D80809A1D80553BDA402FFFE5BFEFFFFFFFF00000001
 

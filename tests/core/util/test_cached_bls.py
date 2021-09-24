@@ -1,7 +1,7 @@
 import unittest
 from blspy import AugSchemeMPL
-from peas.util import cached_bls
-from peas.util.lru_cache import LRUCache
+from weed.util import cached_bls
+from weed.util.lru_cache import LRUCache
 
 
 class TestCachedBLS(unittest.TestCase):

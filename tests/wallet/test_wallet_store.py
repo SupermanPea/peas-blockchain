@@ -4,10 +4,10 @@
 # from secrets import token_bytes
 # import aiosqlite
 # import pytest
-# from peas.util.ints import uint32, uint64, uint128
-# from peas.wallet.wallet_coin_record import WalletCoinRecord
-# from peas.wallet.util.wallet_types import WalletType
-# from peas.types.coin import Coin
+# from weed.util.ints import uint32, uint64, uint128
+# from weed.wallet.wallet_coin_record import WalletCoinRecord
+# from weed.wallet.util.wallet_types import WalletType
+# from weed.types.coin import Coin
 #
 #
 # @pytest.fixture(scope="module")

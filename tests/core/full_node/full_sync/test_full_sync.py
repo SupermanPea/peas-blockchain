@@ -6,13 +6,13 @@ from typing import List
 
 import pytest
 
-from peas.full_node.weight_proof import _validate_sub_epoch_summaries
-from peas.protocols import full_node_protocol
-from peas.types.blockchain_format.sub_epoch_summary import SubEpochSummary
-from peas.types.full_block import FullBlock
-from peas.types.peer_info import PeerInfo
-from peas.util.hash import std_hash
-from peas.util.ints import uint16
+from weed.full_node.weight_proof import _validate_sub_epoch_summaries
+from weed.protocols import full_node_protocol
+from weed.types.blockchain_format.sub_epoch_summary import SubEpochSummary
+from weed.types.full_block import FullBlock
+from weed.types.peer_info import PeerInfo
+from weed.util.hash import std_hash
+from weed.util.ints import uint16
 from tests.core.fixtures import default_400_blocks, default_1000_blocks, default_10000_blocks, empty_blockchain
 from tests.core.node_height import node_height_exactly, node_height_between
 from tests.setup_nodes import bt, self_hostname, setup_n_nodes, setup_two_nodes, test_constants

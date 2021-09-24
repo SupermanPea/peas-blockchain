@@ -6,13 +6,13 @@ from typing import List
 import aiosqlite
 import pytest
 
-from peas.consensus.blockchain import Blockchain
-from peas.consensus.constants import ConsensusConstants
-from peas.full_node.block_store import BlockStore
-from peas.full_node.coin_store import CoinStore
-from peas.types.full_block import FullBlock
-from peas.util.db_wrapper import DBWrapper
-from peas.util.path import mkdir
+from weed.consensus.blockchain import Blockchain
+from weed.consensus.constants import ConsensusConstants
+from weed.full_node.block_store import BlockStore
+from weed.full_node.coin_store import CoinStore
+from weed.types.full_block import FullBlock
+from weed.util.db_wrapper import DBWrapper
+from weed.util.path import mkdir
 from tests.setup_nodes import bt, test_constants
 
 
@@ -96,8 +96,8 @@ def persistent_blocks(
 ):
     # try loading from disc, if not create new blocks.db file
     # TODO hash fixtures.py and blocktool.py, add to path, delete if the files changed
-    block_path_dir = Path("~/.peas/blocks").expanduser()
-    file_path = Path(f"~/.peas/blocks/{db_name}").expanduser()
+    block_path_dir = Path("~/.weed/blocks").expanduser()
+    file_path = Path(f"~/.weed/blocks/{db_name}").expanduser()
     if not path.exists(block_path_dir):
         mkdir(block_path_dir.parent)
         mkdir(block_path_dir)

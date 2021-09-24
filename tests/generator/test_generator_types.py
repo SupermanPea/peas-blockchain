@@ -1,10 +1,10 @@
 from typing import Dict
 from unittest import TestCase
 
-from peas.types.blockchain_format.program import Program, SerializedProgram
-from peas.types.generator_types import GeneratorBlockCacheInterface
-from peas.full_node.generator import create_block_generator, create_generator_args
-from peas.util.ints import uint32
+from weed.types.blockchain_format.program import Program, SerializedProgram
+from weed.types.generator_types import GeneratorBlockCacheInterface
+from weed.full_node.generator import create_block_generator, create_generator_args
+from weed.util.ints import uint32
 
 gen0 = SerializedProgram.from_bytes(
     bytes.fromhex(

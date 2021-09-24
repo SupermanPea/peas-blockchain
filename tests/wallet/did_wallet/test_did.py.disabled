@@ -2,25 +2,25 @@
 import asyncio
 import time
 import pytest
-from peas.simulator.simulator_protocol import FarmNewBlockProtocol
-from peas.types.peer_info import PeerInfo
-from peas.util.ints import uint16, uint32, uint64
+from weed.simulator.simulator_protocol import FarmNewBlockProtocol
+from weed.types.peer_info import PeerInfo
+from weed.util.ints import uint16, uint32, uint64
 from tests.setup_nodes import setup_simulators_and_wallets
-from peas.wallet.did_wallet.did_wallet import DIDWallet
-from peas.wallet.did_wallet import did_wallet_puzzles
+from weed.wallet.did_wallet.did_wallet import DIDWallet
+from weed.wallet.did_wallet import did_wallet_puzzles
 from clvm_tools import binutils
-from peas.types.blockchain_format.program import Program
-from peas.wallet.derivation_record import DerivationRecord
-from peas.types.coin_spend import CoinSpend
+from weed.types.blockchain_format.program import Program
+from weed.wallet.derivation_record import DerivationRecord
+from weed.types.coin_spend import CoinSpend
 from blspy import AugSchemeMPL
-from peas.types.spend_bundle import SpendBundle
-from peas.wallet.transaction_record import TransactionRecord
-from peas.wallet.derive_keys import master_sk_to_wallet_sk
-from peas.consensus.block_rewards import calculate_pool_reward, calculate_base_farmer_reward
+from weed.types.spend_bundle import SpendBundle
+from weed.wallet.transaction_record import TransactionRecord
+from weed.wallet.derive_keys import master_sk_to_wallet_sk
+from weed.consensus.block_rewards import calculate_pool_reward, calculate_base_farmer_reward
 from tests.time_out_assert import time_out_assert
 from secrets import token_bytes
-from peas.wallet.util.transaction_type import TransactionType
-from peas.consensus.default_constants import DEFAULT_CONSTANTS
+from weed.wallet.util.transaction_type import TransactionType
+from weed.consensus.default_constants import DEFAULT_CONSTANTS
 
 
 @pytest.fixture(scope="module")

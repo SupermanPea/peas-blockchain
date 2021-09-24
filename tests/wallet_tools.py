@@ -2,21 +2,21 @@ from typing import Dict, List, Optional, Tuple
 
 from blspy import AugSchemeMPL, G2Element, PrivateKey
 
-from peas.consensus.constants import ConsensusConstants
-from peas.util.hash import std_hash
-from peas.types.announcement import Announcement
-from peas.types.blockchain_format.coin import Coin
-from peas.types.blockchain_format.program import Program
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.coin_spend import CoinSpend
-from peas.types.condition_opcodes import ConditionOpcode
-from peas.types.condition_with_args import ConditionWithArgs
-from peas.types.spend_bundle import SpendBundle
-from peas.util.clvm import int_from_bytes, int_to_bytes
-from peas.util.condition_tools import conditions_by_opcode, conditions_for_solution
-from peas.util.ints import uint32, uint64
-from peas.wallet.derive_keys import master_sk_to_wallet_sk
-from peas.wallet.puzzles.p2_delegated_puzzle_or_hidden_puzzle import (
+from weed.consensus.constants import ConsensusConstants
+from weed.util.hash import std_hash
+from weed.types.announcement import Announcement
+from weed.types.blockchain_format.coin import Coin
+from weed.types.blockchain_format.program import Program
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.coin_spend import CoinSpend
+from weed.types.condition_opcodes import ConditionOpcode
+from weed.types.condition_with_args import ConditionWithArgs
+from weed.types.spend_bundle import SpendBundle
+from weed.util.clvm import int_from_bytes, int_to_bytes
+from weed.util.condition_tools import conditions_by_opcode, conditions_for_solution
+from weed.util.ints import uint32, uint64
+from weed.wallet.derive_keys import master_sk_to_wallet_sk
+from weed.wallet.puzzles.p2_delegated_puzzle_or_hidden_puzzle import (
     DEFAULT_HIDDEN_PUZZLE_HASH,
     calculate_synthetic_secret_key,
     puzzle_for_pk,

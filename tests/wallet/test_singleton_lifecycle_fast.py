@@ -4,15 +4,15 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 from blspy import G1Element, G2Element
 from clvm_tools import binutils
 
-from peas.types.blockchain_format.program import Program, SerializedProgram
-from peas.types.announcement import Announcement
-from peas.types.blockchain_format.coin import Coin
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.coin_spend import CoinSpend
-from peas.types.spend_bundle import SpendBundle
-from peas.util.condition_tools import ConditionOpcode
-from peas.util.ints import uint64
-from peas.wallet.puzzles.load_clvm import load_clvm
+from weed.types.blockchain_format.program import Program, SerializedProgram
+from weed.types.announcement import Announcement
+from weed.types.blockchain_format.coin import Coin
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.coin_spend import CoinSpend
+from weed.types.spend_bundle import SpendBundle
+from weed.util.condition_tools import ConditionOpcode
+from weed.util.ints import uint64
+from weed.wallet.puzzles.load_clvm import load_clvm
 
 from tests.clvm.coin_store import BadSpendBundleError, CoinStore, CoinTimestamp
 

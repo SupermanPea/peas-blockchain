@@ -6,13 +6,13 @@ import time
 import pytest
 from clvm_tools import binutils
 
-from peas.consensus.condition_costs import ConditionCost
-from peas.consensus.cost_calculator import NPCResult, calculate_cost_of_program
-from peas.full_node.bundle_tools import simple_solution_generator
-from peas.full_node.mempool_check_conditions import get_name_puzzle_conditions, get_puzzle_and_solution_for_coin
-from peas.types.blockchain_format.program import Program, SerializedProgram
-from peas.types.generator_types import BlockGenerator
-from peas.wallet.puzzles import p2_delegated_puzzle_or_hidden_puzzle
+from weed.consensus.condition_costs import ConditionCost
+from weed.consensus.cost_calculator import NPCResult, calculate_cost_of_program
+from weed.full_node.bundle_tools import simple_solution_generator
+from weed.full_node.mempool_check_conditions import get_name_puzzle_conditions, get_puzzle_and_solution_for_coin
+from weed.types.blockchain_format.program import Program, SerializedProgram
+from weed.types.generator_types import BlockGenerator
+from weed.wallet.puzzles import p2_delegated_puzzle_or_hidden_puzzle
 from tests.setup_nodes import bt, test_constants
 
 from .make_block_generator import make_block_generator
@@ -46,7 +46,7 @@ def large_block_generator(size):
     except FileNotFoundError:
         generator = make_block_generator(size)
         blob = bytes(generator.program)
-        #  TODO: Re-enable large-block*.hex but cache in ~/.peas/subdir
+        #  TODO: Re-enable large-block*.hex but cache in ~/.weed/subdir
         #  with open(hex_path, "w") as f:
         #      f.write(blob.hex())
         return blob

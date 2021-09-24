@@ -5,25 +5,25 @@ import signal
 from secrets import token_bytes
 from typing import Dict, List, Optional
 
-from peas.consensus.constants import ConsensusConstants
-from peas.daemon.server import WebSocketServer, create_server_for_daemon, daemon_launch_lock_path, singleton
-from peas.full_node.full_node_api import FullNodeAPI
-from peas.server.start_farmer import service_kwargs_for_farmer
-from peas.server.start_full_node import service_kwargs_for_full_node
-from peas.server.start_harvester import service_kwargs_for_harvester
-from peas.server.start_introducer import service_kwargs_for_introducer
-from peas.server.start_service import Service
-from peas.server.start_timelord import service_kwargs_for_timelord
-from peas.server.start_wallet import service_kwargs_for_wallet
-from peas.simulator.start_simulator import service_kwargs_for_full_node_simulator
-from peas.timelord.timelord_launcher import kill_processes, spawn_process
-from peas.types.peer_info import PeerInfo
-from peas.util.bech32m import encode_puzzle_hash
+from weed.consensus.constants import ConsensusConstants
+from weed.daemon.server import WebSocketServer, create_server_for_daemon, daemon_launch_lock_path, singleton
+from weed.full_node.full_node_api import FullNodeAPI
+from weed.server.start_farmer import service_kwargs_for_farmer
+from weed.server.start_full_node import service_kwargs_for_full_node
+from weed.server.start_harvester import service_kwargs_for_harvester
+from weed.server.start_introducer import service_kwargs_for_introducer
+from weed.server.start_service import Service
+from weed.server.start_timelord import service_kwargs_for_timelord
+from weed.server.start_wallet import service_kwargs_for_wallet
+from weed.simulator.start_simulator import service_kwargs_for_full_node_simulator
+from weed.timelord.timelord_launcher import kill_processes, spawn_process
+from weed.types.peer_info import PeerInfo
+from weed.util.bech32m import encode_puzzle_hash
 from tests.block_tools import create_block_tools, create_block_tools_async, test_constants
 from tests.util.keyring import TempKeyring
-from peas.util.hash import std_hash
-from peas.util.ints import uint16, uint32
-from peas.util.keychain import bytes_to_mnemonic
+from weed.util.hash import std_hash
+from weed.util.ints import uint16, uint32
+from weed.util.keychain import bytes_to_mnemonic
 from tests.time_out_assert import time_out_assert_custom_interval
 
 
@@ -217,10 +217,10 @@ async def setup_farmer(
     config = bt.config["farmer"]
     config_pool = bt.config["pool"]
 
-    config["pea_target_address"] = encode_puzzle_hash(b_tools.farmer_ph, "pea")
+    config["pea_target_address"] = encode_puzzle_hash(b_tools.farmer_ph, "wee")
     config["pool_public_keys"] = [bytes(pk).hex() for pk in b_tools.pool_pubkeys]
     config["port"] = port
-    config_pool["pea_target_address"] = encode_puzzle_hash(b_tools.pool_ph, "pea")
+    config_pool["pea_target_address"] = encode_puzzle_hash(b_tools.pool_ph, "wee")
 
     if full_node_port:
         config["full_node_peer"]["host"] = self_hostname

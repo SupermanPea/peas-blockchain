@@ -2,9 +2,9 @@ import asyncio
 
 import pytest
 
-from peas.protocols.protocol_message_types import ProtocolMessageTypes
-from peas.server.outbound_message import make_msg
-from peas.server.rate_limits import RateLimiter, NON_TX_FREQ
+from weed.protocols.protocol_message_types import ProtocolMessageTypes
+from weed.server.outbound_message import make_msg
+from weed.server.rate_limits import RateLimiter, NON_TX_FREQ
 from tests.setup_nodes import test_constants
 
 

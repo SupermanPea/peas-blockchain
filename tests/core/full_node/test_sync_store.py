@@ -2,8 +2,8 @@ import asyncio
 
 import pytest
 
-from peas.full_node.sync_store import SyncStore
-from peas.util.hash import std_hash
+from weed.full_node.sync_store import SyncStore
+from weed.util.hash import std_hash
 
 
 @pytest.fixture(scope="module")

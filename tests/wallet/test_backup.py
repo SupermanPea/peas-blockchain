@@ -4,12 +4,12 @@
 #
 # import pytest
 #
-# from peas.consensus.block_rewards import calculate_pool_reward, calculate_base_farmer_reward
-# from peas.simulator.simulator_protocol import FarmNewBlockProtocol
-# from peas.types.peer_info import PeerInfo
-# from peas.util.ints import uint16, uint32, uint64
+# from weed.consensus.block_rewards import calculate_pool_reward, calculate_base_farmer_reward
+# from weed.simulator.simulator_protocol import FarmNewBlockProtocol
+# from weed.types.peer_info import PeerInfo
+# from weed.util.ints import uint16, uint32, uint64
 # from tests.setup_nodes import setup_simulators_and_wallets
-# from peas.wallet.cc_wallet.cc_wallet import CCWallet
+# from weed.wallet.cc_wallet.cc_wallet import CCWallet
 # from tests.time_out_assert import time_out_assert
 #
 #

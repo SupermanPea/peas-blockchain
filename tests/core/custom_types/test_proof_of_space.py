@@ -1,7 +1,7 @@
 from secrets import token_bytes
 
-from peas.consensus.default_constants import DEFAULT_CONSTANTS
-from peas.types.blockchain_format.proof_of_space import ProofOfSpace  # pylint: disable=E0401
+from weed.consensus.default_constants import DEFAULT_CONSTANTS
+from weed.types.blockchain_format.proof_of_space import ProofOfSpace  # pylint: disable=E0401
 
 
 class TestProofOfSpace:

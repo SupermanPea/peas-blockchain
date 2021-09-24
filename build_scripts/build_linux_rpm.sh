@@ -6,23 +6,23 @@ if [ ! "$1" ]; then
 elif [ "$1" = "amd64" ]; then
 	#PLATFORM="$1"
 	REDHAT_PLATFORM="x86_64"
-	DIR_NAME="peas-blockchain-linux-x64"
+	DIR_NAME="weed-blockchain-linux-x64"
 else
 	#PLATFORM="$1"
-	DIR_NAME="peas-blockchain-linux-arm64"
+	DIR_NAME="weed-blockchain-linux-arm64"
 fi
 
 pip install setuptools_scm
-# The environment variable PEAS_INSTALLER_VERSION needs to be defined
+# The environment variable WEED_INSTALLER_VERSION needs to be defined
 # If the env variable NOTARIZE and the username and password variables are
 # set, this will attempt to Notarize the signed DMG
-PEAS_INSTALLER_VERSION=$(python installer-version.py)
+WEED_INSTALLER_VERSION=$(python installer-version.py)
 
-if [ ! "$PEAS_INSTALLER_VERSION" ]; then
-	echo "WARNING: No environment variable PEAS_INSTALLER_VERSION set. Using 0.0.0."
-	PEAS_INSTALLER_VERSION="0.0.0"
+if [ ! "$WEED_INSTALLER_VERSION" ]; then
+	echo "WARNING: No environment variable WEED_INSTALLER_VERSION set. Using 0.0.0."
+	WEED_INSTALLER_VERSION="0.0.0"
 fi
-echo "Peas Installer Version is: $PEAS_INSTALLER_VERSION"
+echo "Weed Installer Version is: $WEED_INSTALLER_VERSION"
 
 echo "Installing npm and electron packagers"
 npm install electron-packager -g
@@ -34,7 +34,7 @@ mkdir dist
 
 echo "Create executables with pyinstaller"
 pip install pyinstaller==4.5
-SPEC_FILE=$(python -c 'import peas; print(peas.PYINSTALLER_SPEC_PATH)')
+SPEC_FILE=$(python -c 'import weed; print(weed.PYINSTALLER_SPEC_PATH)')
 pyinstaller --log-level=INFO "$SPEC_FILE"
 LAST_EXIT_CODE=$?
 if [ "$LAST_EXIT_CODE" -ne 0 ]; then
@@ -42,9 +42,9 @@ if [ "$LAST_EXIT_CODE" -ne 0 ]; then
 	exit $LAST_EXIT_CODE
 fi
 
-cp -r dist/daemon ../peas-blockchain-gui
+cp -r dist/daemon ../weed-blockchain-gui
 cd .. || exit
-cd peas-blockchain-gui || exit
+cd weed-blockchain-gui || exit
 
 echo "npm build"
 npm install
@@ -56,13 +56,13 @@ if [ "$LAST_EXIT_CODE" -ne 0 ]; then
 	exit $LAST_EXIT_CODE
 fi
 
-# sets the version for peas-blockchain in package.json
+# sets the version for weed-blockchain in package.json
 cp package.json package.json.orig
-jq --arg VER "$PEAS_INSTALLER_VERSION" '.version=$VER' package.json > temp.json && mv temp.json package.json
+jq --arg VER "$WEED_INSTALLER_VERSION" '.version=$VER' package.json > temp.json && mv temp.json package.json
 
-electron-packager . peas-blockchain --asar.unpack="**/daemon/**" --platform=linux \
---icon=src/assets/img/Peas.icns --overwrite --app-bundle-id=net.peas.blockchain \
---appVersion=$PEAS_INSTALLER_VERSION
+electron-packager . weed-blockchain --asar.unpack="**/daemon/**" --platform=linux \
+--icon=src/assets/img/Weed.icns --overwrite --app-bundle-id=net.weed.blockchain \
+--appVersion=$WEED_INSTALLER_VERSION
 LAST_EXIT_CODE=$?
 
 # reset the package.json to the original
@@ -77,12 +77,12 @@ mv $DIR_NAME ../build_scripts/dist/
 cd ../build_scripts || exit
 
 if [ "$REDHAT_PLATFORM" = "x86_64" ]; then
-	echo "Create peas-blockchain-$PEAS_INSTALLER_VERSION.rpm"
+	echo "Create weed-blockchain-$WEED_INSTALLER_VERSION.rpm"
 
 	# shellcheck disable=SC2046
 	NODE_ROOT="$(dirname $(dirname $(which node)))"
 
-	# Disables build links from the generated rpm so that we dont conflict with other packages. See https://github.com/Peas-Network/peas-blockchain/issues/3846
+	# Disables build links from the generated rpm so that we dont conflict with other packages. See https://github.com/Weed-Network/weed-blockchain/issues/3846
 	# shellcheck disable=SC2086
 	sed -i '1s/^/%define _build_id_links none\n%global _enable_debug_package 0\n%global debug_package %{nil}\n%global __os_install_post \/usr\/lib\/rpm\/brp-compress %{nil}\n/' "$NODE_ROOT/lib/node_modules/electron-installer-redhat/resources/spec.ejs"
 
@@ -92,7 +92,7 @@ if [ "$REDHAT_PLATFORM" = "x86_64" ]; then
 	sed -i "s#throw new Error('Please upgrade to RPM 4.13.*#console.warn('You are using RPM < 4.13')\n      return { requires: [ 'gtk3', 'libnotify', 'nss', 'libXScrnSaver', 'libXtst', 'xdg-utils', 'at-spi2-core', 'libdrm', 'mesa-libgbm', 'libxcb' ] }#g" $NODE_ROOT/lib/node_modules/electron-installer-redhat/src/dependencies.js
 
   electron-installer-redhat --src dist/$DIR_NAME/ --dest final_installer/ \
-  --arch "$REDHAT_PLATFORM" --options.version $PEAS_INSTALLER_VERSION \
+  --arch "$REDHAT_PLATFORM" --options.version $WEED_INSTALLER_VERSION \
   --license ../LICENSE
   LAST_EXIT_CODE=$?
   if [ "$LAST_EXIT_CODE" -ne 0 ]; then

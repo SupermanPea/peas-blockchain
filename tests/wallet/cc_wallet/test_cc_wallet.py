@@ -3,18 +3,18 @@ from typing import List
 
 import pytest
 
-from peas.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from peas.full_node.mempool_manager import MempoolManager
-from peas.simulator.simulator_protocol import FarmNewBlockProtocol
-from peas.types.blockchain_format.coin import Coin
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.peer_info import PeerInfo
-from peas.util.ints import uint16, uint32, uint64
-from peas.wallet.cc_wallet.cc_utils import cc_puzzle_hash_for_inner_puzzle_hash
-from peas.wallet.cc_wallet.cc_wallet import CCWallet
-from peas.wallet.puzzles.cc_loader import CC_MOD
-from peas.wallet.transaction_record import TransactionRecord
-from peas.wallet.wallet_coin_record import WalletCoinRecord
+from weed.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from weed.full_node.mempool_manager import MempoolManager
+from weed.simulator.simulator_protocol import FarmNewBlockProtocol
+from weed.types.blockchain_format.coin import Coin
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.peer_info import PeerInfo
+from weed.util.ints import uint16, uint32, uint64
+from weed.wallet.cc_wallet.cc_utils import cc_puzzle_hash_for_inner_puzzle_hash
+from weed.wallet.cc_wallet.cc_wallet import CCWallet
+from weed.wallet.puzzles.cc_loader import CC_MOD
+from weed.wallet.transaction_record import TransactionRecord
+from weed.wallet.wallet_coin_record import WalletCoinRecord
 from tests.setup_nodes import setup_simulators_and_wallets
 from tests.time_out_assert import time_out_assert
 

@@ -3,13 +3,13 @@ from unittest import TestCase
 
 from blspy import AugSchemeMPL, BasicSchemeMPL, G1Element, G2Element
 
-from peas.types.blockchain_format.program import Program
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.coin_spend import CoinSpend
-from peas.types.spend_bundle import SpendBundle
-from peas.util.condition_tools import ConditionOpcode
-from peas.util.hash import std_hash
-from peas.wallet.puzzles import (
+from weed.types.blockchain_format.program import Program
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.coin_spend import CoinSpend
+from weed.types.spend_bundle import SpendBundle
+from weed.util.condition_tools import ConditionOpcode
+from weed.util.hash import std_hash
+from weed.wallet.puzzles import (
     p2_conditions,
     p2_delegated_conditions,
     p2_delegated_puzzle,

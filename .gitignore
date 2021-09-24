@@ -25,7 +25,7 @@ config/keys.yaml
 config/plots.yaml
 
 # Bundled code
-peas-blockchain.tar.gz.tar.gz
+weed-blockchain.tar.gz.tar.gz
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -66,7 +66,7 @@ activate
 .idea
 
 # Packaging
-peas-blockchain.tar.gz
+weed-blockchain.tar.gz
 
 # Timelord utilities
 vdf_bench
@@ -88,13 +88,13 @@ main.sym
 *.recompiled
 
 # Dev config react
-# peas-blockchain-gui/src/dev_config.js
+# weed-blockchain-gui/src/dev_config.js
 # React built app
-peas-blockchain-gui/.eslintcache
-peas-blockchain-gui/build
+weed-blockchain-gui/.eslintcache
+weed-blockchain-gui/build
 build_scripts/dist
 build_scripts/*.Dmg
-peas-blockchain-gui/src/locales/_build
+weed-blockchain-gui/src/locales/_build
 build_scripts\win_build
 build_scripts/win_build
 win_code_sign_cert.p12

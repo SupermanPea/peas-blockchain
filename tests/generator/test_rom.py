@@ -1,23 +1,23 @@
 from clvm_tools import binutils
 from clvm_tools.clvmc import compile_clvm_text
 
-from peas.full_node.generator import run_generator
-from peas.full_node.mempool_check_conditions import get_name_puzzle_conditions
-from peas.types.blockchain_format.program import Program, SerializedProgram
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.condition_with_args import ConditionWithArgs
-from peas.types.name_puzzle_condition import NPC
-from peas.types.generator_types import BlockGenerator, GeneratorArg
-from peas.util.clvm import int_to_bytes
-from peas.util.condition_tools import ConditionOpcode
-from peas.util.ints import uint32
-from peas.wallet.puzzles.load_clvm import load_clvm
+from weed.full_node.generator import run_generator
+from weed.full_node.mempool_check_conditions import get_name_puzzle_conditions
+from weed.types.blockchain_format.program import Program, SerializedProgram
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.condition_with_args import ConditionWithArgs
+from weed.types.name_puzzle_condition import NPC
+from weed.types.generator_types import BlockGenerator, GeneratorArg
+from weed.util.clvm import int_to_bytes
+from weed.util.condition_tools import ConditionOpcode
+from weed.util.ints import uint32
+from weed.wallet.puzzles.load_clvm import load_clvm
 
 MAX_COST = int(1e15)
 COST_PER_BYTE = int(12000)
 
 
-DESERIALIZE_MOD = load_clvm("peaslisp_deserialisation.clvm", package_or_requirement="peas.wallet.puzzles")
+DESERIALIZE_MOD = load_clvm("weedlisp_deserialisation.clvm", package_or_requirement="weed.wallet.puzzles")
 
 
 GENERATOR_CODE = """

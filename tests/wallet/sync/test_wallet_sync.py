@@ -4,12 +4,12 @@ import asyncio
 import pytest
 from colorlog import logging
 
-from peas.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from peas.protocols import full_node_protocol
-from peas.simulator.simulator_protocol import FarmNewBlockProtocol
-from peas.types.peer_info import PeerInfo
-from peas.util.ints import uint16, uint32
-from peas.wallet.wallet_state_manager import WalletStateManager
+from weed.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from weed.protocols import full_node_protocol
+from weed.simulator.simulator_protocol import FarmNewBlockProtocol
+from weed.types.peer_info import PeerInfo
+from weed.util.ints import uint16, uint32
+from weed.wallet.wallet_state_manager import WalletStateManager
 from tests.connection_utils import disconnect_all_and_reconnect
 from tests.core.fixtures import default_400_blocks, default_1000_blocks
 from tests.setup_nodes import bt, self_hostname, setup_node_and_wallet, setup_simulators_and_wallets, test_constants

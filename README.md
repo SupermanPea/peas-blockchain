@@ -1,25 +1,25 @@
-# peas-blockchain
+# weed-blockchain
 
-![Alt text](https://www.peas.net/img/peas_logo.svg)
+![Alt text](https://www.weed.net/img/weed_logo.svg)
 
 | Current Release/main | Development Branch/dev |
 |         :---:          |          :---:         |
-| [![Ubuntu Core Tests](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-test-ubuntu-core.yml/badge.svg)](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-test-ubuntu-core.yml) [![MacOS Core Tests](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-test-macos-core.yml/badge.svg)](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-test-macos-core.yml) [![Windows Installer on Windows 10 and Python 3.7](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-windows-installer.yml/badge.svg)](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-windows-installer.yml)  |  [![Ubuntu Core Tests](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-test-ubuntu-core.yml/badge.svg?branch=dev)](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-test-ubuntu-core.yml) [![MacOS Core Tests](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-test-macos-core.yml/badge.svg?branch=dev)](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-test-macos-core.yml) [![Windows Installer on Windows 10 and Python 3.7](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-windows-installer.yml/badge.svg?branch=dev)](https://github.com/Peas-Network/peas-blockchain/actions/workflows/build-windows-installer.yml) |
+| [![Ubuntu Core Tests](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-test-ubuntu-core.yml/badge.svg)](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-test-ubuntu-core.yml) [![MacOS Core Tests](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-test-macos-core.yml/badge.svg)](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-test-macos-core.yml) [![Windows Installer on Windows 10 and Python 3.7](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-windows-installer.yml/badge.svg)](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-windows-installer.yml)  |  [![Ubuntu Core Tests](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-test-ubuntu-core.yml/badge.svg?branch=dev)](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-test-ubuntu-core.yml) [![MacOS Core Tests](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-test-macos-core.yml/badge.svg?branch=dev)](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-test-macos-core.yml) [![Windows Installer on Windows 10 and Python 3.7](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-windows-installer.yml/badge.svg?branch=dev)](https://github.com/Weed-Network/weed-blockchain/actions/workflows/build-windows-installer.yml) |
 
-![GitHub contributors](https://img.shields.io/github/contributors/Peas-Network/peas-blockchain?logo=GitHub)
+![GitHub contributors](https://img.shields.io/github/contributors/Weed-Network/weed-blockchain?logo=GitHub)
 
-Peas is a modern cryptocurrency built from scratch, designed to be efficient, decentralized, and secure. Here are some of the features and benefits:
+Weed is a modern cryptocurrency built from scratch, designed to be efficient, decentralized, and secure. Here are some of the features and benefits:
 * [Proof of space and time](https://docs.google.com/document/d/1tmRIb7lgi4QfKkNaxuKOBHRmwbVlGL4f7EsBDr_5xZE/edit) based consensus which allows anyone to farm with commodity hardware
 * Very easy to use full node and farmer GUI and cli (thousands of nodes active on mainnet)
 * Simplified UTXO based transaction model, with small on-chain state
-* Lisp-style Turing-complete functional [programming language](https://peaslisp.com/) for money related use cases
+* Lisp-style Turing-complete functional [programming language](https://weedlisp.com/) for money related use cases
 * BLS keys and aggregate signatures (only one signature per block)
-* [Pooling protocol](https://github.com/Peas-Network/peas-blockchain/wiki/Pooling-User-Guide) that allows farmers to have control of making blocks
+* [Pooling protocol](https://github.com/Weed-Network/weed-blockchain/wiki/Pooling-User-Guide) that allows farmers to have control of making blocks
 * Support for light clients with fast, objective syncing
 * A growing community of farmers and developers around the world
 
-Please check out the [wiki](https://github.com/Peas-Network/peas-blockchain/wiki)
-and [FAQ](https://github.com/Peas-Network/peas-blockchain/wiki/FAQ) for
+Please check out the [wiki](https://github.com/Weed-Network/weed-blockchain/wiki)
+and [FAQ](https://github.com/Weed-Network/weed-blockchain/wiki/FAQ) for
 information on this project.
 
 Python 3.7+ is required. Make sure your default python version is >=3.7
@@ -34,19 +34,19 @@ These methods tend to be router make/model specific.
 
 Most users should only install harvesters, farmers, plotter, full nodes, and wallets.
 Building Timelords and VDFs is for sophisticated users, in most environments.
-Peas Network and additional volunteers are running sufficient Timelords
+Weed Network and additional volunteers are running sufficient Timelords
 for consensus.
 
 ## Installing
 
 Install instructions are available in the
-[INSTALL](https://github.com/Peas-Network/peas-blockchain/wiki/INSTALL)
+[INSTALL](https://github.com/Weed-Network/weed-blockchain/wiki/INSTALL)
 section of the
-[peas-blockchain repository wiki](https://github.com/Peas-Network/peas-blockchain/wiki).
+[weed-blockchain repository wiki](https://github.com/Weed-Network/weed-blockchain/wiki).
 
 ## Running
 
 Once installed, a
-[Quick Start Guide](https://github.com/Peas-Network/peas-blockchain/wiki/Quick-Start-Guide)
+[Quick Start Guide](https://github.com/Weed-Network/weed-blockchain/wiki/Quick-Start-Guide)
 is available from the repository
-[wiki](https://github.com/Peas-Network/peas-blockchain/wiki).
+[wiki](https://github.com/Weed-Network/weed-blockchain/wiki).

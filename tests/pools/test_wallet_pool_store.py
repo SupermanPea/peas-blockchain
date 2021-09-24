@@ -7,14 +7,14 @@ import aiosqlite
 import pytest
 from clvm_tools import binutils
 
-from peas.types.blockchain_format.coin import Coin
-from peas.types.blockchain_format.program import Program, SerializedProgram
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.coin_spend import CoinSpend
-from peas.util.db_wrapper import DBWrapper
-from peas.util.ints import uint64
+from weed.types.blockchain_format.coin import Coin
+from weed.types.blockchain_format.program import Program, SerializedProgram
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.coin_spend import CoinSpend
+from weed.util.db_wrapper import DBWrapper
+from weed.util.ints import uint64
 
-from peas.wallet.wallet_pool_store import WalletPoolStore
+from weed.wallet.wallet_pool_store import WalletPoolStore
 
 
 @pytest.fixture(scope="module")

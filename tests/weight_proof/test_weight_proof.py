@@ -6,22 +6,22 @@ from typing import Dict, List, Optional, Tuple
 import aiosqlite
 import pytest
 
-from peas.consensus.block_header_validation import validate_finished_header_block
-from peas.consensus.block_record import BlockRecord
-from peas.consensus.blockchain import Blockchain
-from peas.consensus.default_constants import DEFAULT_CONSTANTS
-from peas.consensus.difficulty_adjustment import get_next_sub_slot_iters_and_difficulty
-from peas.consensus.full_block_to_block_record import block_to_block_record
-from peas.full_node.block_store import BlockStore
-from peas.full_node.coin_store import CoinStore
-from peas.server.start_full_node import SERVICE_NAME
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.blockchain_format.sub_epoch_summary import SubEpochSummary
-from peas.util.block_cache import BlockCache
+from weed.consensus.block_header_validation import validate_finished_header_block
+from weed.consensus.block_record import BlockRecord
+from weed.consensus.blockchain import Blockchain
+from weed.consensus.default_constants import DEFAULT_CONSTANTS
+from weed.consensus.difficulty_adjustment import get_next_sub_slot_iters_and_difficulty
+from weed.consensus.full_block_to_block_record import block_to_block_record
+from weed.full_node.block_store import BlockStore
+from weed.full_node.coin_store import CoinStore
+from weed.server.start_full_node import SERVICE_NAME
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.blockchain_format.sub_epoch_summary import SubEpochSummary
+from weed.util.block_cache import BlockCache
 from tests.block_tools import test_constants
-from peas.util.config import load_config
-from peas.util.default_root import DEFAULT_ROOT_PATH
-from peas.util.generator_tools import get_block_header
+from weed.util.config import load_config
+from weed.util.default_root import DEFAULT_ROOT_PATH
+from weed.util.generator_tools import get_block_header
 from tests.setup_nodes import bt
 
 try:
@@ -30,16 +30,16 @@ except ImportError:
     pass
 
 
-from peas.consensus.pot_iterations import calculate_iterations_quality
-from peas.full_node.weight_proof import (  # type: ignore
+from weed.consensus.pot_iterations import calculate_iterations_quality
+from weed.full_node.weight_proof import (  # type: ignore
     WeightProofHandler,
     _map_sub_epoch_summaries,
     _validate_sub_epoch_segments,
     _validate_summaries_weight,
 )
-from peas.types.full_block import FullBlock
-from peas.types.header_block import HeaderBlock
-from peas.util.ints import uint32, uint64
+from weed.types.full_block import FullBlock
+from weed.types.header_block import HeaderBlock
+from weed.util.ints import uint32, uint64
 from tests.core.fixtures import (
     default_400_blocks,
     default_1000_blocks,

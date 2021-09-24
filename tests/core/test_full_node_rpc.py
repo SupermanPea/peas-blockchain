@@ -4,18 +4,18 @@ import logging
 import pytest
 from blspy import AugSchemeMPL
 
-from peas.consensus.pot_iterations import is_overflow_block
-from peas.full_node.signage_point import SignagePoint
-from peas.protocols import full_node_protocol
-from peas.rpc.full_node_rpc_api import FullNodeRpcApi
-from peas.rpc.full_node_rpc_client import FullNodeRpcClient
-from peas.rpc.rpc_server import NodeType, start_rpc_server
-from peas.simulator.simulator_protocol import FarmNewBlockProtocol
-from peas.types.spend_bundle import SpendBundle
-from peas.types.unfinished_block import UnfinishedBlock
+from weed.consensus.pot_iterations import is_overflow_block
+from weed.full_node.signage_point import SignagePoint
+from weed.protocols import full_node_protocol
+from weed.rpc.full_node_rpc_api import FullNodeRpcApi
+from weed.rpc.full_node_rpc_client import FullNodeRpcClient
+from weed.rpc.rpc_server import NodeType, start_rpc_server
+from weed.simulator.simulator_protocol import FarmNewBlockProtocol
+from weed.types.spend_bundle import SpendBundle
+from weed.types.unfinished_block import UnfinishedBlock
 from tests.block_tools import get_signage_point
-from peas.util.hash import std_hash
-from peas.util.ints import uint16, uint8
+from weed.util.hash import std_hash
+from weed.util.ints import uint16, uint8
 from tests.wallet_tools import WalletTool
 from tests.connection_utils import connect_and_get_peer
 from tests.setup_nodes import bt, self_hostname, setup_simulators_and_wallets, test_constants

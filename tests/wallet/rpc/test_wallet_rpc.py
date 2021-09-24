@@ -1,23 +1,23 @@
 import asyncio
-from peas.util.config import load_config, save_config
+from weed.util.config import load_config, save_config
 import logging
 from pathlib import Path
 
 import pytest
 
-from peas.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from peas.rpc.full_node_rpc_api import FullNodeRpcApi
-from peas.rpc.full_node_rpc_client import FullNodeRpcClient
-from peas.rpc.rpc_server import start_rpc_server
-from peas.rpc.wallet_rpc_api import WalletRpcApi
-from peas.rpc.wallet_rpc_client import WalletRpcClient
-from peas.simulator.simulator_protocol import FarmNewBlockProtocol
-from peas.types.peer_info import PeerInfo
-from peas.util.bech32m import encode_puzzle_hash
-from peas.consensus.coinbase import create_puzzlehash_for_pk
-from peas.wallet.derive_keys import master_sk_to_wallet_sk
-from peas.util.ints import uint16, uint32
-from peas.wallet.transaction_record import TransactionRecord
+from weed.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from weed.rpc.full_node_rpc_api import FullNodeRpcApi
+from weed.rpc.full_node_rpc_client import FullNodeRpcClient
+from weed.rpc.rpc_server import start_rpc_server
+from weed.rpc.wallet_rpc_api import WalletRpcApi
+from weed.rpc.wallet_rpc_client import WalletRpcClient
+from weed.simulator.simulator_protocol import FarmNewBlockProtocol
+from weed.types.peer_info import PeerInfo
+from weed.util.bech32m import encode_puzzle_hash
+from weed.consensus.coinbase import create_puzzlehash_for_pk
+from weed.wallet.derive_keys import master_sk_to_wallet_sk
+from weed.util.ints import uint16, uint32
+from weed.wallet.transaction_record import TransactionRecord
 from tests.setup_nodes import bt, setup_simulators_and_wallets, self_hostname
 from tests.time_out_assert import time_out_assert
 
@@ -98,7 +98,7 @@ class TestWalletRpc:
         client = await WalletRpcClient.create(self_hostname, test_rpc_port, bt.root_path, config)
         client_node = await FullNodeRpcClient.create(self_hostname, test_rpc_port_node, bt.root_path, config)
         try:
-            addr = encode_puzzle_hash(await wallet_node_2.wallet_state_manager.main_wallet.get_new_puzzlehash(), "pea")
+            addr = encode_puzzle_hash(await wallet_node_2.wallet_state_manager.main_wallet.get_new_puzzlehash(), "wee")
             tx_amount = 15600000
             try:
                 await client.send_transaction("1", 100000000000000001, addr)
@@ -150,7 +150,7 @@ class TestWalletRpc:
             ] == initial_funds_eventually - tx_amount
 
             for i in range(0, 5):
-                await client.farm_block(encode_puzzle_hash(ph_2, "pea"))
+                await client.farm_block(encode_puzzle_hash(ph_2, "wee"))
                 await asyncio.sleep(0.5)
 
             await time_out_assert(5, eventual_balance, initial_funds_eventually - tx_amount - signed_tx_amount)
@@ -177,7 +177,7 @@ class TestWalletRpc:
             push_res = await client_node.push_tx(tx_res.spend_bundle)
             assert push_res["success"]
             for i in range(0, 5):
-                await client.farm_block(encode_puzzle_hash(ph_2, "pea"))
+                await client.farm_block(encode_puzzle_hash(ph_2, "wee"))
                 await asyncio.sleep(0.5)
 
             new_balance = initial_funds_eventually - tx_amount - signed_tx_amount - 444 - 999 - 100
@@ -199,7 +199,7 @@ class TestWalletRpc:
 
             await asyncio.sleep(3)
             for i in range(0, 5):
-                await client.farm_block(encode_puzzle_hash(ph_2, "pea"))
+                await client.farm_block(encode_puzzle_hash(ph_2, "wee"))
                 await asyncio.sleep(0.5)
 
             new_balance = new_balance - 555 - 666 - 200

@@ -5,15 +5,15 @@ from typing import List
 import pytest
 from blspy import PrivateKey
 
-from peas.pools.pool_wallet import PoolWallet
-from peas.pools.pool_wallet_info import PoolState, FARMING_TO_POOL
-from peas.simulator.simulator_protocol import FarmNewBlockProtocol
-from peas.types.coin_spend import CoinSpend
-from peas.types.full_block import FullBlock
-from peas.types.peer_info import PeerInfo
-from peas.util.ints import uint16, uint32
-from peas.wallet.derive_keys import master_sk_to_singleton_owner_sk
-from peas.wallet.wallet_state_manager import WalletStateManager
+from weed.pools.pool_wallet import PoolWallet
+from weed.pools.pool_wallet_info import PoolState, FARMING_TO_POOL
+from weed.simulator.simulator_protocol import FarmNewBlockProtocol
+from weed.types.coin_spend import CoinSpend
+from weed.types.full_block import FullBlock
+from weed.types.peer_info import PeerInfo
+from weed.util.ints import uint16, uint32
+from weed.wallet.derive_keys import master_sk_to_singleton_owner_sk
+from weed.wallet.wallet_state_manager import WalletStateManager
 from tests.setup_nodes import self_hostname, setup_simulators_and_wallets
 
 

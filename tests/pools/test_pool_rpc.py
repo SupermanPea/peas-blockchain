@@ -8,27 +8,27 @@ from typing import Optional, List, Dict
 import pytest
 from blspy import G1Element, AugSchemeMPL
 
-from peas.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from peas.plotting.create_plots import create_plots, PlotKeys
-from peas.pools.pool_wallet_info import PoolWalletInfo, PoolSingletonState
-from peas.protocols import full_node_protocol
-from peas.protocols.full_node_protocol import RespondBlock
-from peas.rpc.rpc_server import start_rpc_server
-from peas.rpc.wallet_rpc_api import WalletRpcApi
-from peas.rpc.wallet_rpc_client import WalletRpcClient
-from peas.simulator.simulator_protocol import FarmNewBlockProtocol, ReorgProtocol
-from peas.types.blockchain_format.proof_of_space import ProofOfSpace
-from peas.types.blockchain_format.sized_bytes import bytes32
+from weed.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from weed.plotting.create_plots import create_plots, PlotKeys
+from weed.pools.pool_wallet_info import PoolWalletInfo, PoolSingletonState
+from weed.protocols import full_node_protocol
+from weed.protocols.full_node_protocol import RespondBlock
+from weed.rpc.rpc_server import start_rpc_server
+from weed.rpc.wallet_rpc_api import WalletRpcApi
+from weed.rpc.wallet_rpc_client import WalletRpcClient
+from weed.simulator.simulator_protocol import FarmNewBlockProtocol, ReorgProtocol
+from weed.types.blockchain_format.proof_of_space import ProofOfSpace
+from weed.types.blockchain_format.sized_bytes import bytes32
 
-from peas.types.peer_info import PeerInfo
-from peas.util.bech32m import encode_puzzle_hash
+from weed.types.peer_info import PeerInfo
+from weed.util.bech32m import encode_puzzle_hash
 from tests.block_tools import get_plot_dir, get_plot_tmp_dir
-from peas.util.config import load_config
-from peas.util.hash import std_hash
-from peas.util.ints import uint16, uint32
-from peas.wallet.derive_keys import master_sk_to_local_sk
-from peas.wallet.transaction_record import TransactionRecord
-from peas.wallet.util.wallet_types import WalletType
+from weed.util.config import load_config
+from weed.util.hash import std_hash
+from weed.util.ints import uint16, uint32
+from weed.wallet.derive_keys import master_sk_to_local_sk
+from weed.wallet.transaction_record import TransactionRecord
+from weed.wallet.util.wallet_types import WalletType
 from tests.setup_nodes import self_hostname, setup_simulators_and_wallets, bt
 from tests.time_out_assert import time_out_assert
 
@@ -487,7 +487,7 @@ class TestPoolWalletRpc:
         for summary in summaries_response:
             if WalletType(int(summary["type"])) == WalletType.POOLING_WALLET:
                 assert False
-        # Balance stars at 6 PEA
+        # Balance stars at 6 WEE
         assert (await wallet_0.get_confirmed_balance()) == 6000000000000
         creation_tx: TransactionRecord = await client.create_new_pool_wallet(
             our_ph, "http://123.45.67.89", 10, "localhost:5000", "new", "FARMING_TO_POOL"
@@ -561,7 +561,7 @@ class TestPoolWalletRpc:
         assert (
             wallet_node_0.wallet_state_manager.get_peak().height == full_node_api.full_node.blockchain.get_peak().height
         )
-        # Balance stars at 6 PEA and 5 more blocks are farmed, total 22 PEA
+        # Balance stars at 6 WEE and 5 more blocks are farmed, total 22 WEE
         assert (await wallet_0.get_confirmed_balance()) == 21999999999999
 
     @pytest.mark.asyncio
@@ -687,11 +687,11 @@ class TestPoolWalletRpc:
                 if WalletType(int(summary["type"])) == WalletType.POOLING_WALLET:
                     assert False
 
-            async def have_peas():
+            async def have_weed():
                 await self.farm_blocks(full_node_api, our_ph, 1)
                 return (await wallets[0].get_confirmed_balance()) > 0
 
-            await time_out_assert(timeout=WAIT_SECS, function=have_peas)
+            await time_out_assert(timeout=WAIT_SECS, function=have_weed)
 
             creation_tx: TransactionRecord = await client.create_new_pool_wallet(
                 our_ph, "", 0, "localhost:5000", "new", "SELF_POOLING"
@@ -799,11 +799,11 @@ class TestPoolWalletRpc:
                 if WalletType(int(summary["type"])) == WalletType.POOLING_WALLET:
                     assert False
 
-            async def have_peas():
+            async def have_weed():
                 await self.farm_blocks(full_node_api, our_ph, 1)
                 return (await wallets[0].get_confirmed_balance()) > 0
 
-            await time_out_assert(timeout=WAIT_SECS, function=have_peas)
+            await time_out_assert(timeout=WAIT_SECS, function=have_weed)
 
             creation_tx: TransactionRecord = await client.create_new_pool_wallet(
                 pool_a_ph, "https://pool-a.org", 5, "localhost:5000", "new", "FARMING_TO_POOL"
@@ -886,11 +886,11 @@ class TestPoolWalletRpc:
                 if WalletType(int(summary["type"])) == WalletType.POOLING_WALLET:
                     assert False
 
-            async def have_peas():
+            async def have_weed():
                 await self.farm_blocks(full_node_api, our_ph, 1)
                 return (await wallets[0].get_confirmed_balance()) > 0
 
-            await time_out_assert(timeout=WAIT_SECS, function=have_peas)
+            await time_out_assert(timeout=WAIT_SECS, function=have_weed)
 
             creation_tx: TransactionRecord = await client.create_new_pool_wallet(
                 pool_a_ph, "https://pool-a.org", 5, "localhost:5000", "new", "FARMING_TO_POOL"

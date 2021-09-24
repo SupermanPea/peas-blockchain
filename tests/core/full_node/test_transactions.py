@@ -4,13 +4,13 @@ from typing import Optional
 
 import pytest
 
-from peas.consensus.block_record import BlockRecord
-from peas.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from peas.full_node.full_node_api import FullNodeAPI
-from peas.protocols import full_node_protocol
-from peas.simulator.simulator_protocol import FarmNewBlockProtocol
-from peas.types.peer_info import PeerInfo
-from peas.util.ints import uint16, uint32
+from weed.consensus.block_record import BlockRecord
+from weed.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from weed.full_node.full_node_api import FullNodeAPI
+from weed.protocols import full_node_protocol
+from weed.simulator.simulator_protocol import FarmNewBlockProtocol
+from weed.types.peer_info import PeerInfo
+from weed.util.ints import uint16, uint32
 from tests.setup_nodes import self_hostname, setup_simulators_and_wallets
 from tests.time_out_assert import time_out_assert
 

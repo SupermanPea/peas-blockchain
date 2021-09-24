@@ -1,7 +1,7 @@
-from peas.types.blockchain_format.coin import Coin
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.util.ints import uint64
-from peas.util.hash import std_hash
+from weed.types.blockchain_format.coin import Coin
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.util.ints import uint64
+from weed.util.hash import std_hash
 import io
 
 

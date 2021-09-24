@@ -5,17 +5,17 @@ import logging
 import pytest
 from aiohttp import ClientSession, ClientTimeout, ServerDisconnectedError, WSCloseCode, WSMessage, WSMsgType
 
-from peas.full_node.full_node_api import FullNodeAPI
-from peas.protocols import full_node_protocol
-from peas.protocols.protocol_message_types import ProtocolMessageTypes
-from peas.protocols.shared_protocol import Handshake
-from peas.server.outbound_message import make_msg, Message
-from peas.server.rate_limits import RateLimiter
-from peas.server.server import ssl_context_for_client
-from peas.server.ws_connection import WSPeasConnection
-from peas.types.peer_info import PeerInfo
-from peas.util.ints import uint16, uint64
-from peas.util.errors import Err
+from weed.full_node.full_node_api import FullNodeAPI
+from weed.protocols import full_node_protocol
+from weed.protocols.protocol_message_types import ProtocolMessageTypes
+from weed.protocols.shared_protocol import Handshake
+from weed.server.outbound_message import make_msg, Message
+from weed.server.rate_limits import RateLimiter
+from weed.server.server import ssl_context_for_client
+from weed.server.ws_connection import WSWeedConnection
+from weed.types.peer_info import PeerInfo
+from weed.util.ints import uint16, uint64
+from weed.util.errors import Err
 from tests.setup_nodes import self_hostname, setup_simulators_and_wallets
 from tests.time_out_assert import time_out_assert
 
@@ -62,7 +62,7 @@ class TestDos:
         url = f"wss://{self_hostname}:{server_1._port}/ws"
 
         ssl_context = ssl_context_for_client(
-            server_2.peas_ca_crt_path, server_2.peas_ca_key_path, server_2.p2p_crt_path, server_2.p2p_key_path
+            server_2.weed_ca_crt_path, server_2.weed_ca_key_path, server_2.p2p_crt_path, server_2.p2p_key_path
         )
         ws = await session.ws_connect(
             url, autoclose=True, autoping=True, heartbeat=60, ssl=ssl_context, max_msg_size=100 * 1024 * 1024
@@ -111,7 +111,7 @@ class TestDos:
         url = f"wss://{self_hostname}:{server_1._port}/ws"
 
         ssl_context = ssl_context_for_client(
-            server_2.peas_ca_crt_path, server_2.peas_ca_key_path, server_2.p2p_crt_path, server_2.p2p_key_path
+            server_2.weed_ca_crt_path, server_2.weed_ca_key_path, server_2.p2p_crt_path, server_2.p2p_key_path
         )
         ws = await session.ws_connect(
             url, autoclose=True, autoping=True, heartbeat=60, ssl=ssl_context, max_msg_size=100 * 1024 * 1024
@@ -157,7 +157,7 @@ class TestDos:
         url = f"wss://{self_hostname}:{server_1._port}/ws"
 
         ssl_context = ssl_context_for_client(
-            server_2.peas_ca_crt_path, server_2.peas_ca_key_path, server_2.p2p_crt_path, server_2.p2p_key_path
+            server_2.weed_ca_crt_path, server_2.weed_ca_key_path, server_2.p2p_crt_path, server_2.p2p_key_path
         )
         ws = await session.ws_connect(
             url, autoclose=True, autoping=True, heartbeat=60, ssl=ssl_context, max_msg_size=100 * 1024 * 1024
@@ -188,8 +188,8 @@ class TestDos:
 
         assert len(server_1.all_connections) == 1
 
-        ws_con: WSPeasConnection = list(server_1.all_connections.values())[0]
-        ws_con_2: WSPeasConnection = list(server_2.all_connections.values())[0]
+        ws_con: WSWeedConnection = list(server_1.all_connections.values())[0]
+        ws_con_2: WSWeedConnection = list(server_2.all_connections.values())[0]
 
         ws_con.peer_host = "1.2.3.4"
         ws_con_2.peer_host = "1.2.3.4"
@@ -241,8 +241,8 @@ class TestDos:
 
         assert len(server_1.all_connections) == 1
 
-        ws_con: WSPeasConnection = list(server_1.all_connections.values())[0]
-        ws_con_2: WSPeasConnection = list(server_2.all_connections.values())[0]
+        ws_con: WSWeedConnection = list(server_1.all_connections.values())[0]
+        ws_con_2: WSWeedConnection = list(server_2.all_connections.values())[0]
 
         ws_con.peer_host = "1.2.3.4"
         ws_con_2.peer_host = "1.2.3.4"
@@ -290,8 +290,8 @@ class TestDos:
 
         assert len(server_1.all_connections) == 1
 
-        ws_con: WSPeasConnection = list(server_1.all_connections.values())[0]
-        ws_con_2: WSPeasConnection = list(server_2.all_connections.values())[0]
+        ws_con: WSWeedConnection = list(server_1.all_connections.values())[0]
+        ws_con_2: WSWeedConnection = list(server_2.all_connections.values())[0]
 
         ws_con.peer_host = "1.2.3.4"
         ws_con_2.peer_host = "1.2.3.4"

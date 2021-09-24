@@ -1,6 +1,6 @@
 import unittest
 
-from peas.util.lru_cache import LRUCache
+from weed.util.lru_cache import LRUCache
 
 
 class TestLRUCache(unittest.TestCase):

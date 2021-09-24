@@ -11,30 +11,30 @@ import pytest
 from blspy import AugSchemeMPL, G2Element
 from clvm.casts import int_to_bytes
 
-from peas.consensus.block_rewards import calculate_base_farmer_reward
-from peas.consensus.blockchain import ReceiveBlockResult
-from peas.consensus.coinbase import create_farmer_coin
-from peas.consensus.pot_iterations import is_overflow_block
-from peas.full_node.bundle_tools import detect_potential_template_generator
-from peas.types.blockchain_format.classgroup import ClassgroupElement
-from peas.types.blockchain_format.coin import Coin
-from peas.types.blockchain_format.foliage import TransactionsInfo
-from peas.types.blockchain_format.program import SerializedProgram
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.blockchain_format.slots import InfusedChallengeChainSubSlot
-from peas.types.blockchain_format.vdf import VDFInfo, VDFProof
-from peas.types.condition_opcodes import ConditionOpcode
-from peas.types.condition_with_args import ConditionWithArgs
-from peas.types.end_of_slot_bundle import EndOfSubSlotBundle
-from peas.types.full_block import FullBlock
-from peas.types.spend_bundle import SpendBundle
-from peas.types.unfinished_block import UnfinishedBlock
+from weed.consensus.block_rewards import calculate_base_farmer_reward
+from weed.consensus.blockchain import ReceiveBlockResult
+from weed.consensus.coinbase import create_farmer_coin
+from weed.consensus.pot_iterations import is_overflow_block
+from weed.full_node.bundle_tools import detect_potential_template_generator
+from weed.types.blockchain_format.classgroup import ClassgroupElement
+from weed.types.blockchain_format.coin import Coin
+from weed.types.blockchain_format.foliage import TransactionsInfo
+from weed.types.blockchain_format.program import SerializedProgram
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.blockchain_format.slots import InfusedChallengeChainSubSlot
+from weed.types.blockchain_format.vdf import VDFInfo, VDFProof
+from weed.types.condition_opcodes import ConditionOpcode
+from weed.types.condition_with_args import ConditionWithArgs
+from weed.types.end_of_slot_bundle import EndOfSubSlotBundle
+from weed.types.full_block import FullBlock
+from weed.types.spend_bundle import SpendBundle
+from weed.types.unfinished_block import UnfinishedBlock
 from tests.block_tools import create_block_tools_async, get_vdf_info_and_proof
-from peas.util.errors import Err
-from peas.util.hash import std_hash
-from peas.util.ints import uint8, uint64, uint32
-from peas.util.merkle_set import MerkleSet
-from peas.util.recursive_replace import recursive_replace
+from weed.util.errors import Err
+from weed.util.hash import std_hash
+from weed.util.ints import uint8, uint64, uint32
+from weed.util.merkle_set import MerkleSet
+from weed.util.recursive_replace import recursive_replace
 from tests.wallet_tools import WalletTool
 from tests.core.fixtures import default_400_blocks  # noqa: F401; noqa: F401
 from tests.core.fixtures import default_1000_blocks  # noqa: F401
@@ -44,7 +44,7 @@ from tests.core.fixtures import empty_blockchain  # noqa: F401
 from tests.core.fixtures import create_blockchain
 from tests.setup_nodes import bt, test_constants
 from tests.util.keyring import TempKeyring
-from peas.wallet.puzzles.p2_delegated_puzzle_or_hidden_puzzle import (
+from weed.wallet.puzzles.p2_delegated_puzzle_or_hidden_puzzle import (
     DEFAULT_HIDDEN_PUZZLE_HASH,
     calculate_synthetic_secret_key,
 )

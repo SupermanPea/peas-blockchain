@@ -15,17 +15,17 @@ from blspy import G2Element
 
 from clvm_tools.binutils import assemble
 
-from peas.consensus.blockchain import ReceiveBlockResult
-from peas.consensus.constants import ConsensusConstants
-from peas.types.announcement import Announcement
-from peas.types.blockchain_format.program import Program
-from peas.types.coin_record import CoinRecord
-from peas.types.coin_spend import CoinSpend
-from peas.types.condition_opcodes import ConditionOpcode
-from peas.types.full_block import FullBlock
-from peas.types.spend_bundle import SpendBundle
-from peas.util.errors import Err
-from peas.util.ints import uint32
+from weed.consensus.blockchain import ReceiveBlockResult
+from weed.consensus.constants import ConsensusConstants
+from weed.types.announcement import Announcement
+from weed.types.blockchain_format.program import Program
+from weed.types.coin_record import CoinRecord
+from weed.types.coin_spend import CoinSpend
+from weed.types.condition_opcodes import ConditionOpcode
+from weed.types.full_block import FullBlock
+from weed.types.spend_bundle import SpendBundle
+from weed.util.errors import Err
+from weed.util.ints import uint32
 from tests.block_tools import create_block_tools, test_constants
 from tests.util.keyring import TempKeyring
 

@@ -6,10 +6,10 @@ import time
 import pytest
 import logging
 
-from peas.protocols import full_node_protocol
-from peas.types.peer_info import PeerInfo
-from peas.util.ints import uint16
-from peas.wallet.transaction_record import TransactionRecord
+from weed.protocols import full_node_protocol
+from weed.types.peer_info import PeerInfo
+from weed.util.ints import uint16
+from weed.wallet.transaction_record import TransactionRecord
 from tests.connection_utils import connect_and_get_peer
 from tests.setup_nodes import bt, self_hostname, setup_simulators_and_wallets
 from tests.time_out_assert import time_out_assert

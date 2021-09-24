@@ -18,9 +18,9 @@ fi
 if [ "$(uname -m)" = "armv7l" ]; then
   echo ""
 	echo "WARNING:"
-	echo "The Peas Blockchain requires a 64 bit OS and this is 32 bit armv7l"
+	echo "The Weed Blockchain requires a 64 bit OS and this is 32 bit armv7l"
 	echo "For more information, see"
-	echo "https://github.com/Peas-Network/peas-blockchain/wiki/Raspberry-Pi"
+	echo "https://github.com/Weed-Network/weed-blockchain/wiki/Raspberry-Pi"
 	echo "Exiting."
 	exit 1
 fi
@@ -120,13 +120,13 @@ python -m pip install --extra-index-url https://pypi.chia.net/simple/ miniupnpc=
 python -m pip install -e . --extra-index-url https://pypi.chia.net/simple/
 
 echo ""
-echo "Peas blockchain install.sh complete."
+echo "Weed blockchain install.sh complete."
 echo "For assistance join us on Keybase in the #testnet chat channel:"
-echo "https://keybase.io/team/peas_network.public"
+echo "https://keybase.io/team/weed_network.public"
 echo ""
-echo "Try the Quick Start Guide to running peas-blockchain:"
-echo "https://github.com/Peas-Network/peas-blockchain/wiki/Quick-Start-Guide"
+echo "Try the Quick Start Guide to running weed-blockchain:"
+echo "https://github.com/Weed-Network/weed-blockchain/wiki/Quick-Start-Guide"
 echo ""
 echo "To install the GUI type 'sh install-gui.sh' after '. ./activate'."
 echo ""
-echo "Type '. ./activate' and then 'peas init' to begin."
+echo "Type '. ./activate' and then 'weed init' to begin."

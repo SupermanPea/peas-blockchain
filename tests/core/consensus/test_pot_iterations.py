@@ -1,15 +1,15 @@
 from pytest import raises
 
-from peas.consensus.default_constants import DEFAULT_CONSTANTS
-from peas.consensus.pos_quality import _expected_plot_size
-from peas.consensus.pot_iterations import (
+from weed.consensus.default_constants import DEFAULT_CONSTANTS
+from weed.consensus.pos_quality import _expected_plot_size
+from weed.consensus.pot_iterations import (
     calculate_ip_iters,
     calculate_iterations_quality,
     calculate_sp_iters,
     is_overflow_block,
 )
-from peas.util.hash import std_hash
-from peas.util.ints import uint8, uint64
+from weed.util.hash import std_hash
+from weed.util.ints import uint8, uint64
 
 test_constants = DEFAULT_CONSTANTS.replace(**{"NUM_SPS_SUB_SLOT": 32, "SUB_SLOT_TIME_TARGET": 300})
 

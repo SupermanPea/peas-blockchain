@@ -7,10 +7,10 @@ from pathlib import Path
 import aiosqlite
 import pytest
 
-from peas.consensus.blockchain import Blockchain
-from peas.full_node.block_store import BlockStore
-from peas.full_node.coin_store import CoinStore
-from peas.util.db_wrapper import DBWrapper
+from weed.consensus.blockchain import Blockchain
+from weed.full_node.block_store import BlockStore
+from weed.full_node.coin_store import CoinStore
+from weed.util.db_wrapper import DBWrapper
 from tests.setup_nodes import bt, test_constants
 
 log = logging.getLogger(__name__)

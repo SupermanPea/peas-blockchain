@@ -1,5 +1,5 @@
 #
-# THIS FILE IS GENERATED. SEE https://github.com/Peas-Network/peas-blockchain/tree/main/tests#readme
+# THIS FILE IS GENERATED. SEE https://github.com/Weed-Network/weed-blockchain/tree/main/tests#readme
 #
 name: MacOS TEST_NAME Tests
 
@@ -68,9 +68,9 @@ CHECKOUT_TEST_BLOCKS_AND_PLOTS
     - name: Link home directory
       run: |
         cd $HOME
-        ln -s $GITHUB_WORKSPACE/.peas
-        echo "$HOME/.peas"
-        ls -al $HOME/.peas
+        ln -s $GITHUB_WORKSPACE/.weed
+        echo "$HOME/.weed"
+        ls -al $HOME/.weed
 
     - name: Run install script
       env:
@@ -92,5 +92,5 @@ INSTALL_TIMELORD
         . ./activate
         ./venv/bin/py.test TEST_DIR -s -v --durations 0PYTEST_PARALLEL_ARGS
 #
-# THIS FILE IS GENERATED. SEE https://github.com/Peas-Network/peas-blockchain/tree/main/tests#readme
+# THIS FILE IS GENERATED. SEE https://github.com/Weed-Network/weed-blockchain/tree/main/tests#readme
 #

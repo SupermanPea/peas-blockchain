@@ -4,14 +4,14 @@ from secrets import token_bytes
 from blspy import AugSchemeMPL, PrivateKey
 from clvm_tools import binutils
 
-from peas.consensus.default_constants import DEFAULT_CONSTANTS
-from peas.types.blockchain_format.program import Program, INFINITE_COST
-from peas.types.condition_opcodes import ConditionOpcode
-from peas.types.condition_with_args import ConditionWithArgs
-from peas.util.ints import uint32
+from weed.consensus.default_constants import DEFAULT_CONSTANTS
+from weed.types.blockchain_format.program import Program, INFINITE_COST
+from weed.types.condition_opcodes import ConditionOpcode
+from weed.types.condition_with_args import ConditionWithArgs
+from weed.util.ints import uint32
 from tests.wallet_tools import WalletTool
-from peas.wallet.derive_keys import master_sk_to_wallet_sk
-from peas.wallet.puzzles.p2_delegated_puzzle import puzzle_for_pk
+from weed.wallet.derive_keys import master_sk_to_wallet_sk
+from weed.wallet.puzzles.p2_delegated_puzzle import puzzle_for_pk
 
 
 def float_to_str(f):
@@ -29,7 +29,7 @@ def float_to_str(f):
     return float_string
 
 
-def run_and_return_cost_time(peaslisp):
+def run_and_return_cost_time(weedlisp):
 
     start = time.time()
     clvm_loop = "((c (q ((c (f (a)) (c (f (a)) (c (f (r (a))) (c (f (r (r (a))))"
@@ -37,7 +37,7 @@ def run_and_return_cost_time(peaslisp):
     " (c (- (f (r (a))) (q 1)) (c (f (r (r (a)))) (q ()))))))"
     " ((c (f (r (r (a)))) (q ()))))) (q (q ()))) (a)))) (a))))"
     loop_program = Program.to(binutils.assemble(clvm_loop))
-    clvm_loop_solution = f"(1000 {peaslisp})"
+    clvm_loop_solution = f"(1000 {weedlisp})"
     solution_program = Program.to(binutils.assemble(clvm_loop_solution))
 
     cost, sexp = loop_program.run_with_cost(solution_program, INFINITE_COST)

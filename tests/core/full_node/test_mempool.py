@@ -7,38 +7,38 @@ import pytest
 from clvm import SExp
 from clvm.EvalError import EvalError
 
-import peas.server.ws_connection as ws
+import weed.server.ws_connection as ws
 
-from peas.full_node.mempool import Mempool
-from peas.full_node.full_node_api import FullNodeAPI
-from peas.protocols import full_node_protocol
-from peas.simulator.simulator_protocol import FarmNewBlockProtocol
-from peas.types.announcement import Announcement
-from peas.types.blockchain_format.coin import Coin
-from peas.types.coin_spend import CoinSpend
-from peas.types.condition_opcodes import ConditionOpcode
-from peas.types.condition_with_args import ConditionWithArgs
-from peas.types.spend_bundle import SpendBundle
-from peas.util.clvm import int_to_bytes
-from peas.util.condition_tools import conditions_for_solution
-from peas.util.errors import Err, ValidationError
-from peas.util.ints import uint64
-from peas.util.hash import std_hash
-from peas.types.mempool_inclusion_status import MempoolInclusionStatus
-from peas.util.api_decorators import api_request, peer_required, bytes_required
-from peas.full_node.mempool_check_conditions import parse_condition_args, parse_condition
+from weed.full_node.mempool import Mempool
+from weed.full_node.full_node_api import FullNodeAPI
+from weed.protocols import full_node_protocol
+from weed.simulator.simulator_protocol import FarmNewBlockProtocol
+from weed.types.announcement import Announcement
+from weed.types.blockchain_format.coin import Coin
+from weed.types.coin_spend import CoinSpend
+from weed.types.condition_opcodes import ConditionOpcode
+from weed.types.condition_with_args import ConditionWithArgs
+from weed.types.spend_bundle import SpendBundle
+from weed.util.clvm import int_to_bytes
+from weed.util.condition_tools import conditions_for_solution
+from weed.util.errors import Err, ValidationError
+from weed.util.ints import uint64
+from weed.util.hash import std_hash
+from weed.types.mempool_inclusion_status import MempoolInclusionStatus
+from weed.util.api_decorators import api_request, peer_required, bytes_required
+from weed.full_node.mempool_check_conditions import parse_condition_args, parse_condition
 
 from tests.connection_utils import connect_and_get_peer
 from tests.core.node_height import node_height_at_least
 from tests.setup_nodes import bt, setup_simulators_and_wallets
 from tests.time_out_assert import time_out_assert
-from peas.types.blockchain_format.program import Program, INFINITE_COST
-from peas.consensus.condition_costs import ConditionCost
-from peas.consensus.cost_calculator import NPCResult
-from peas.types.blockchain_format.program import SerializedProgram
+from weed.types.blockchain_format.program import Program, INFINITE_COST
+from weed.consensus.condition_costs import ConditionCost
+from weed.consensus.cost_calculator import NPCResult
+from weed.types.blockchain_format.program import SerializedProgram
 from clvm_tools import binutils
-from peas.types.generator_types import BlockGenerator
-from peas.full_node.mempool_check_conditions import get_name_puzzle_conditions
+from weed.types.generator_types import BlockGenerator
+from weed.full_node.mempool_check_conditions import get_name_puzzle_conditions
 from clvm.casts import int_from_bytes
 
 BURN_PUZZLE_HASH = b"0" * 32
@@ -117,7 +117,7 @@ class TestMempool:
 async def respond_transaction(
     node: FullNodeAPI,
     tx: full_node_protocol.RespondTransaction,
-    peer: ws.WSPeasConnection,
+    peer: ws.WSWeedConnection,
     tx_bytes: bytes = b"",
     test: bool = False,
 ) -> Tuple[MempoolInclusionStatus, Optional[Err]]:

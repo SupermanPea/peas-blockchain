@@ -9,38 +9,38 @@ from typing import Dict, Optional, List
 
 import pytest
 
-from peas.consensus.pot_iterations import is_overflow_block
-from peas.full_node.bundle_tools import detect_potential_template_generator
-from peas.full_node.full_node_api import FullNodeAPI
-from peas.full_node.signage_point import SignagePoint
-from peas.protocols import full_node_protocol as fnp, full_node_protocol
-from peas.protocols import timelord_protocol
-from peas.protocols.full_node_protocol import RespondTransaction
-from peas.protocols.protocol_message_types import ProtocolMessageTypes
-from peas.server.address_manager import AddressManager
-from peas.server.outbound_message import Message
-from peas.simulator.simulator_protocol import FarmNewBlockProtocol
-from peas.types.blockchain_format.classgroup import ClassgroupElement
-from peas.types.blockchain_format.program import SerializedProgram
-from peas.types.blockchain_format.vdf import CompressibleVDFField, VDFProof
-from peas.types.condition_opcodes import ConditionOpcode
-from peas.types.condition_with_args import ConditionWithArgs
-from peas.types.full_block import FullBlock
-from peas.types.mempool_inclusion_status import MempoolInclusionStatus
-from peas.types.peer_info import PeerInfo, TimestampedPeerInfo
-from peas.types.spend_bundle import SpendBundle
-from peas.types.unfinished_block import UnfinishedBlock
+from weed.consensus.pot_iterations import is_overflow_block
+from weed.full_node.bundle_tools import detect_potential_template_generator
+from weed.full_node.full_node_api import FullNodeAPI
+from weed.full_node.signage_point import SignagePoint
+from weed.protocols import full_node_protocol as fnp, full_node_protocol
+from weed.protocols import timelord_protocol
+from weed.protocols.full_node_protocol import RespondTransaction
+from weed.protocols.protocol_message_types import ProtocolMessageTypes
+from weed.server.address_manager import AddressManager
+from weed.server.outbound_message import Message
+from weed.simulator.simulator_protocol import FarmNewBlockProtocol
+from weed.types.blockchain_format.classgroup import ClassgroupElement
+from weed.types.blockchain_format.program import SerializedProgram
+from weed.types.blockchain_format.vdf import CompressibleVDFField, VDFProof
+from weed.types.condition_opcodes import ConditionOpcode
+from weed.types.condition_with_args import ConditionWithArgs
+from weed.types.full_block import FullBlock
+from weed.types.mempool_inclusion_status import MempoolInclusionStatus
+from weed.types.peer_info import PeerInfo, TimestampedPeerInfo
+from weed.types.spend_bundle import SpendBundle
+from weed.types.unfinished_block import UnfinishedBlock
 from tests.block_tools import get_signage_point
-from peas.util.clvm import int_to_bytes
-from peas.util.errors import Err
-from peas.util.hash import std_hash
-from peas.util.ints import uint8, uint16, uint32, uint64
-from peas.util.recursive_replace import recursive_replace
-from peas.util.vdf_prover import get_vdf_info_and_proof
+from weed.util.clvm import int_to_bytes
+from weed.util.errors import Err
+from weed.util.hash import std_hash
+from weed.util.ints import uint8, uint16, uint32, uint64
+from weed.util.recursive_replace import recursive_replace
+from weed.util.vdf_prover import get_vdf_info_and_proof
 from tests.wallet_tools import WalletTool
 from tests.core.fixtures import empty_blockchain  # noqa: F401
-from peas.wallet.cc_wallet.cc_wallet import CCWallet
-from peas.wallet.transaction_record import TransactionRecord
+from weed.wallet.cc_wallet.cc_wallet import CCWallet
+from weed.wallet.transaction_record import TransactionRecord
 
 from tests.connection_utils import add_dummy_connection, connect_and_get_peer
 from tests.core.full_node.test_coin_store import get_future_reward_coins

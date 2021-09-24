@@ -1,6 +1,6 @@
 import pytest
-from peas.util.misc import format_bytes
-from peas.util.misc import format_minutes
+from weed.util.misc import format_bytes
+from weed.util.misc import format_minutes
 
 
 class TestMisc:

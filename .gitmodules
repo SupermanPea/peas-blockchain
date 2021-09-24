@@ -1,8 +1,8 @@
-[submodule "peas-blockchain-gui"]
-	path = peas-blockchain-gui
-	url = https://github.com/Peas-Network/peas-blockchain-gui.git
+[submodule "weed-blockchain-gui"]
+	path = weed-blockchain-gui
+	url = https://github.com/Weed-Network/weed-blockchain-gui.git
 	branch = pools
 [submodule "mozilla-ca"]
 	path = mozilla-ca
-	url = https://github.com/Peas-Network/mozilla-ca.git
+	url = https://github.com/Weed-Network/mozilla-ca.git
         branch = main

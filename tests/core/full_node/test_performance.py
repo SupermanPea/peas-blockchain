@@ -9,14 +9,14 @@ from typing import Dict
 import pytest
 import cProfile
 
-from peas.consensus.block_record import BlockRecord
-from peas.full_node.full_node_api import FullNodeAPI
-from peas.protocols import full_node_protocol as fnp
-from peas.types.condition_opcodes import ConditionOpcode
-from peas.types.condition_with_args import ConditionWithArgs
-from peas.types.unfinished_block import UnfinishedBlock
-from peas.util.clvm import int_to_bytes
-from peas.util.ints import uint64
+from weed.consensus.block_record import BlockRecord
+from weed.full_node.full_node_api import FullNodeAPI
+from weed.protocols import full_node_protocol as fnp
+from weed.types.condition_opcodes import ConditionOpcode
+from weed.types.condition_with_args import ConditionWithArgs
+from weed.types.unfinished_block import UnfinishedBlock
+from weed.util.clvm import int_to_bytes
+from weed.util.ints import uint64
 from tests.wallet_tools import WalletTool
 from tests.core.fixtures import empty_blockchain  # noqa: F401
 

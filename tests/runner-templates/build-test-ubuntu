@@ -1,5 +1,5 @@
 #
-# THIS FILE IS GENERATED. SEE https://github.com/Peas-Network/peas-blockchain/tree/main/tests#readme
+# THIS FILE IS GENERATED. SEE https://github.com/Weed-Network/weed-blockchain/tree/main/tests#readme
 #
 name: Ubuntu TEST_NAME Test
 
@@ -68,9 +68,9 @@ CHECKOUT_TEST_BLOCKS_AND_PLOTS
     - name: Link home directory
       run: |
         cd $HOME
-        ln -s $GITHUB_WORKSPACE/.peas
-        echo "$HOME/.peas"
-        ls -al $HOME/.peas
+        ln -s $GITHUB_WORKSPACE/.weed
+        echo "$HOME/.weed"
+        ls -al $HOME/.weed
 
     - name: Install ubuntu dependencies
       run: |
@@ -99,5 +99,5 @@ INSTALL_TIMELORD
 
 CHECK_RESOURCE_USAGE
 #
-# THIS FILE IS GENERATED. SEE https://github.com/Peas-Network/peas-blockchain/tree/main/tests#readme
+# THIS FILE IS GENERATED. SEE https://github.com/Weed-Network/weed-blockchain/tree/main/tests#readme
 #

@@ -15,74 +15,74 @@ from typing import Callable, Dict, List, Optional, Tuple, Any
 from blspy import AugSchemeMPL, G1Element, G2Element, PrivateKey
 from chiabip158 import PyBIP158
 
-from peas.cmds.init_funcs import create_all_ssl, create_default_peas_config
-from peas.daemon.keychain_proxy import connect_to_keychain_and_validate, wrap_local_keychain
-from peas.full_node.bundle_tools import (
+from weed.cmds.init_funcs import create_all_ssl, create_default_weed_config
+from weed.daemon.keychain_proxy import connect_to_keychain_and_validate, wrap_local_keychain
+from weed.full_node.bundle_tools import (
     best_solution_generator_from_template,
     detect_potential_template_generator,
     simple_solution_generator,
 )
-from peas.util.errors import Err
-from peas.full_node.generator import setup_generator_args
-from peas.full_node.mempool_check_conditions import GENERATOR_MOD
-from peas.plotting.create_plots import create_plots, PlotKeys
-from peas.consensus.block_creation import unfinished_block_to_full_block
-from peas.consensus.block_record import BlockRecord
-from peas.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from peas.consensus.blockchain_interface import BlockchainInterface
-from peas.consensus.coinbase import create_puzzlehash_for_pk, create_farmer_coin, create_pool_coin
-from peas.consensus.constants import ConsensusConstants
-from peas.consensus.default_constants import DEFAULT_CONSTANTS
-from peas.consensus.deficit import calculate_deficit
-from peas.consensus.full_block_to_block_record import block_to_block_record
-from peas.consensus.make_sub_epoch_summary import next_sub_epoch_summary
-from peas.consensus.cost_calculator import NPCResult, calculate_cost_of_program
-from peas.consensus.pot_iterations import (
+from weed.util.errors import Err
+from weed.full_node.generator import setup_generator_args
+from weed.full_node.mempool_check_conditions import GENERATOR_MOD
+from weed.plotting.create_plots import create_plots, PlotKeys
+from weed.consensus.block_creation import unfinished_block_to_full_block
+from weed.consensus.block_record import BlockRecord
+from weed.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from weed.consensus.blockchain_interface import BlockchainInterface
+from weed.consensus.coinbase import create_puzzlehash_for_pk, create_farmer_coin, create_pool_coin
+from weed.consensus.constants import ConsensusConstants
+from weed.consensus.default_constants import DEFAULT_CONSTANTS
+from weed.consensus.deficit import calculate_deficit
+from weed.consensus.full_block_to_block_record import block_to_block_record
+from weed.consensus.make_sub_epoch_summary import next_sub_epoch_summary
+from weed.consensus.cost_calculator import NPCResult, calculate_cost_of_program
+from weed.consensus.pot_iterations import (
     calculate_ip_iters,
     calculate_iterations_quality,
     calculate_sp_interval_iters,
     calculate_sp_iters,
     is_overflow_block,
 )
-from peas.consensus.vdf_info_computation import get_signage_point_vdf_info
-from peas.full_node.signage_point import SignagePoint
-from peas.plotting.util import PlotInfo, PlotsRefreshParameter, PlotRefreshResult, parse_plot_info
-from peas.plotting.manager import PlotManager
-from peas.types.blockchain_format.classgroup import ClassgroupElement
-from peas.types.blockchain_format.coin import Coin, hash_coin_list
-from peas.types.blockchain_format.foliage import Foliage, FoliageBlockData, FoliageTransactionBlock, TransactionsInfo
-from peas.types.blockchain_format.pool_target import PoolTarget
-from peas.types.blockchain_format.proof_of_space import ProofOfSpace
-from peas.types.blockchain_format.reward_chain_block import RewardChainBlockUnfinished
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.blockchain_format.slots import (
+from weed.consensus.vdf_info_computation import get_signage_point_vdf_info
+from weed.full_node.signage_point import SignagePoint
+from weed.plotting.util import PlotInfo, PlotsRefreshParameter, PlotRefreshResult, parse_plot_info
+from weed.plotting.manager import PlotManager
+from weed.types.blockchain_format.classgroup import ClassgroupElement
+from weed.types.blockchain_format.coin import Coin, hash_coin_list
+from weed.types.blockchain_format.foliage import Foliage, FoliageBlockData, FoliageTransactionBlock, TransactionsInfo
+from weed.types.blockchain_format.pool_target import PoolTarget
+from weed.types.blockchain_format.proof_of_space import ProofOfSpace
+from weed.types.blockchain_format.reward_chain_block import RewardChainBlockUnfinished
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.blockchain_format.slots import (
     ChallengeChainSubSlot,
     InfusedChallengeChainSubSlot,
     RewardChainSubSlot,
     SubSlotProofs,
 )
-from peas.types.blockchain_format.sub_epoch_summary import SubEpochSummary
-from peas.types.blockchain_format.vdf import VDFInfo, VDFProof
-from peas.types.condition_with_args import ConditionWithArgs
-from peas.types.end_of_slot_bundle import EndOfSubSlotBundle
-from peas.types.full_block import FullBlock
-from peas.types.generator_types import BlockGenerator, CompressorArg
-from peas.types.spend_bundle import SpendBundle
-from peas.types.unfinished_block import UnfinishedBlock
-from peas.types.name_puzzle_condition import NPC
-from peas.util.bech32m import encode_puzzle_hash
-from peas.util.block_cache import BlockCache
-from peas.util.condition_tools import ConditionOpcode, conditions_by_opcode
-from peas.util.config import load_config, save_config
-from peas.util.hash import std_hash
-from peas.util.ints import uint8, uint16, uint32, uint64, uint128
-from peas.util.keychain import Keychain, bytes_to_mnemonic
-from peas.util.merkle_set import MerkleSet
-from peas.util.prev_transaction_block import get_prev_transaction_block
-from peas.util.path import mkdir
-from peas.util.vdf_prover import get_vdf_info_and_proof
+from weed.types.blockchain_format.sub_epoch_summary import SubEpochSummary
+from weed.types.blockchain_format.vdf import VDFInfo, VDFProof
+from weed.types.condition_with_args import ConditionWithArgs
+from weed.types.end_of_slot_bundle import EndOfSubSlotBundle
+from weed.types.full_block import FullBlock
+from weed.types.generator_types import BlockGenerator, CompressorArg
+from weed.types.spend_bundle import SpendBundle
+from weed.types.unfinished_block import UnfinishedBlock
+from weed.types.name_puzzle_condition import NPC
+from weed.util.bech32m import encode_puzzle_hash
+from weed.util.block_cache import BlockCache
+from weed.util.condition_tools import ConditionOpcode, conditions_by_opcode
+from weed.util.config import load_config, save_config
+from weed.util.hash import std_hash
+from weed.util.ints import uint8, uint16, uint32, uint64, uint128
+from weed.util.keychain import Keychain, bytes_to_mnemonic
+from weed.util.merkle_set import MerkleSet
+from weed.util.prev_transaction_block import get_prev_transaction_block
+from weed.util.path import mkdir
+from weed.util.vdf_prover import get_vdf_info_and_proof
 from tests.wallet_tools import WalletTool
-from peas.wallet.derive_keys import (
+from weed.wallet.derive_keys import (
     master_sk_to_farmer_sk,
     master_sk_to_local_sk,
     master_sk_to_pool_sk,
@@ -139,7 +139,7 @@ class BlockTools:
         self.root_path = root_path
         self.local_keychain = keychain
 
-        create_default_peas_config(root_path)
+        create_default_weed_config(root_path)
         create_all_ssl(root_path)
 
         self.local_sk_cache: Dict[bytes32, Tuple[PrivateKey, Any]] = {}
@@ -185,7 +185,7 @@ class BlockTools:
 
         self.farmer_pubkeys: List[G1Element] = [master_sk_to_farmer_sk(sk).get_g1() for sk in self.all_sks]
         if len(self.pool_pubkeys) == 0 or len(self.farmer_pubkeys) == 0:
-            raise RuntimeError("Keys not generated. Run `peas generate keys`")
+            raise RuntimeError("Keys not generated. Run `weed generate keys`")
 
     def change_config(self, new_config: Dict):
         self._config = new_config
@@ -234,7 +234,7 @@ class BlockTools:
                 test_private_keys=test_private_keys[:num_pool_public_key_plots],
             )
             # Create more plots, but to a pool address instead of public key
-            plot_keys_2 = PlotKeys(self.farmer_pk, None, encode_puzzle_hash(self.pool_ph, "pea"))
+            plot_keys_2 = PlotKeys(self.farmer_pk, None, encode_puzzle_hash(self.pool_ph, "wee"))
             args.num = num_pool_address_plots
             await create_plots(
                 args,
@@ -1263,7 +1263,7 @@ def get_challenges(
 
 
 def get_plot_dir() -> Path:
-    cache_path = Path(os.path.expanduser(os.getenv("PEAS_ROOT", "~/.peas/"))) / "test-plots"
+    cache_path = Path(os.path.expanduser(os.getenv("WEED_ROOT", "~/.weed/"))) / "test-plots"
     mkdir(cache_path)
     return cache_path
 

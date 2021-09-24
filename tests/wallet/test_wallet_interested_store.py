@@ -4,11 +4,11 @@ from secrets import token_bytes
 import aiosqlite
 import pytest
 
-from peas.types.blockchain_format.coin import Coin
-from peas.util.db_wrapper import DBWrapper
-from peas.util.ints import uint64
+from weed.types.blockchain_format.coin import Coin
+from weed.util.db_wrapper import DBWrapper
+from weed.util.ints import uint64
 
-from peas.wallet.wallet_interested_store import WalletInterestedStore
+from weed.wallet.wallet_interested_store import WalletInterestedStore
 
 
 @pytest.fixture(scope="module")

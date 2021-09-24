@@ -2,17 +2,17 @@ from collections import defaultdict
 from dataclasses import dataclass, replace
 from typing import Dict, Iterator, Optional, Set
 
-from peas.full_node.mempool_check_conditions import mempool_check_conditions_dict  # noqa
-from peas.types.blockchain_format.coin import Coin
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.coin_record import CoinRecord
-from peas.types.spend_bundle import SpendBundle
-from peas.util.condition_tools import (
+from weed.full_node.mempool_check_conditions import mempool_check_conditions_dict  # noqa
+from weed.types.blockchain_format.coin import Coin
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.coin_record import CoinRecord
+from weed.types.spend_bundle import SpendBundle
+from weed.util.condition_tools import (
     conditions_dict_for_solution,
     coin_announcement_names_for_conditions_dict,
     puzzle_announcement_names_for_conditions_dict,
 )
-from peas.util.ints import uint32, uint64
+from weed.util.ints import uint32, uint64
 
 
 MAX_COST = 11000000000

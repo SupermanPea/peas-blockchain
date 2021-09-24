@@ -1,11 +1,11 @@
 from typing import List, Tuple
 
-from peas.full_node.mempool_check_conditions import get_name_puzzle_conditions
-from peas.types.blockchain_format.coin import Coin
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.full_block import FullBlock
-from peas.types.generator_types import BlockGenerator
-from peas.util.generator_tools import additions_for_npc
+from weed.full_node.mempool_check_conditions import get_name_puzzle_conditions
+from weed.types.blockchain_format.coin import Coin
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.full_block import FullBlock
+from weed.types.generator_types import BlockGenerator
+from weed.util.generator_tools import additions_for_npc
 
 
 def run_and_get_removals_and_additions(

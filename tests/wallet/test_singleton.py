@@ -1,10 +1,10 @@
 from clvm_tools import binutils
 
-from peas.types.blockchain_format.program import Program, INFINITE_COST
-from peas.types.announcement import Announcement
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.util.condition_tools import parse_sexp_to_conditions
-from peas.wallet.puzzles.load_clvm import load_clvm
+from weed.types.blockchain_format.program import Program, INFINITE_COST
+from weed.types.announcement import Announcement
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.util.condition_tools import parse_sexp_to_conditions
+from weed.wallet.puzzles.load_clvm import load_clvm
 
 SINGLETON_MOD = load_clvm("singleton_top_layer.clvm")
 LAUNCHER_PUZZLE = load_clvm("singleton_launcher.clvm")

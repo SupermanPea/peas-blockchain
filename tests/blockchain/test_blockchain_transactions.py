@@ -4,14 +4,14 @@ import logging
 import pytest
 from clvm.casts import int_to_bytes
 
-from peas.consensus.blockchain import ReceiveBlockResult
-from peas.protocols import full_node_protocol
-from peas.types.announcement import Announcement
-from peas.types.condition_opcodes import ConditionOpcode
-from peas.types.condition_with_args import ConditionWithArgs
-from peas.types.spend_bundle import SpendBundle
-from peas.util.errors import ConsensusError, Err
-from peas.util.ints import uint64
+from weed.consensus.blockchain import ReceiveBlockResult
+from weed.protocols import full_node_protocol
+from weed.types.announcement import Announcement
+from weed.types.condition_opcodes import ConditionOpcode
+from weed.types.condition_with_args import ConditionWithArgs
+from weed.types.spend_bundle import SpendBundle
+from weed.util.errors import ConsensusError, Err
+from weed.util.ints import uint64
 from tests.wallet_tools import WalletTool
 from tests.core.full_node.test_full_node import connect_and_get_peer
 from tests.setup_nodes import bt, setup_two_nodes, test_constants

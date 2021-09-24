@@ -5,23 +5,23 @@ from unittest import TestCase
 
 from blspy import AugSchemeMPL, G1Element, G2Element, PrivateKey
 
-from peas.types.blockchain_format.program import Program
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.blockchain_format.coin import Coin
-from peas.types.coin_spend import CoinSpend
-from peas.types.spend_bundle import SpendBundle
-from peas.util.ints import uint64, uint32
-from peas.consensus.default_constants import DEFAULT_CONSTANTS
-from peas.wallet.puzzles.p2_delegated_puzzle_or_hidden_puzzle import (
+from weed.types.blockchain_format.program import Program
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.blockchain_format.coin import Coin
+from weed.types.coin_spend import CoinSpend
+from weed.types.spend_bundle import SpendBundle
+from weed.util.ints import uint64, uint32
+from weed.consensus.default_constants import DEFAULT_CONSTANTS
+from weed.wallet.puzzles.p2_delegated_puzzle_or_hidden_puzzle import (
     puzzle_for_pk,
     solution_for_conditions,
     calculate_synthetic_secret_key,
     DEFAULT_HIDDEN_PUZZLE_HASH,
 )
-from peas.wallet.puzzles.p2_conditions import puzzle_for_conditions
-from peas.wallet.puzzles import singleton_top_layer
-from peas.pools.pool_wallet_info import PoolState
-from peas.pools.pool_puzzles import (
+from weed.wallet.puzzles.p2_conditions import puzzle_for_conditions
+from weed.wallet.puzzles import singleton_top_layer
+from weed.pools.pool_wallet_info import PoolState
+from weed.pools.pool_puzzles import (
     create_waiting_room_inner_puzzle,
     create_pooling_inner_puzzle,
     create_p2_singleton_puzzle,
@@ -47,9 +47,9 @@ from tests.clvm.coin_store import CoinStore, CoinTimestamp, BadSpendBundleError
 
 """
 This test suite aims to test:
-    - peas.pools.pool_puzzles.py
-    - peas.wallet.puzzles.pool_member_innerpuz.clvm
-    - peas.wallet.puzzles.pool_waiting_room_innerpuz.clvm
+    - weed.pools.pool_puzzles.py
+    - weed.wallet.puzzles.pool_member_innerpuz.clvm
+    - weed.wallet.puzzles.pool_waiting_room_innerpuz.clvm
 """
 
 

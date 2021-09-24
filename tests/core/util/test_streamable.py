@@ -6,14 +6,14 @@ import io
 from clvm_tools import binutils
 from pytest import raises
 
-from peas.protocols.wallet_protocol import RespondRemovals
-from peas.types.blockchain_format.coin import Coin
-from peas.types.blockchain_format.program import Program
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.full_block import FullBlock
-from peas.types.weight_proof import SubEpochChallengeSegment
-from peas.util.ints import uint8, uint32
-from peas.util.streamable import (
+from weed.protocols.wallet_protocol import RespondRemovals
+from weed.types.blockchain_format.coin import Coin
+from weed.types.blockchain_format.program import Program
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.full_block import FullBlock
+from weed.types.weight_proof import SubEpochChallengeSegment
+from weed.util.ints import uint8, uint32
+from weed.util.streamable import (
     Streamable,
     streamable,
     parse_bool,

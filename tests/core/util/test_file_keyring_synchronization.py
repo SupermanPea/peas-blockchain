@@ -5,8 +5,8 @@ import pytest
 import random
 import unittest
 
-from peas.util.file_keyring import acquire_writer_lock, FileKeyring, FileKeyringLockTimeout
-from peas.util.keyring_wrapper import KeyringWrapper
+from weed.util.file_keyring import acquire_writer_lock, FileKeyring, FileKeyringLockTimeout
+from weed.util.keyring_wrapper import KeyringWrapper
 from multiprocessing import Pool, TimeoutError
 from pathlib import Path
 from sys import platform

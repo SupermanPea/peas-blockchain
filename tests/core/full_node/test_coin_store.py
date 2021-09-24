@@ -6,20 +6,20 @@ from typing import List, Optional, Set, Tuple
 import aiosqlite
 import pytest
 
-from peas.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from peas.consensus.blockchain import Blockchain, ReceiveBlockResult
-from peas.consensus.coinbase import create_farmer_coin, create_pool_coin
-from peas.full_node.block_store import BlockStore
-from peas.full_node.coin_store import CoinStore
-from peas.full_node.mempool_check_conditions import get_name_puzzle_conditions
-from peas.types.blockchain_format.coin import Coin
-from peas.types.coin_record import CoinRecord
-from peas.types.full_block import FullBlock
-from peas.types.generator_types import BlockGenerator
-from peas.util.generator_tools import tx_removals_and_additions
-from peas.util.ints import uint64, uint32
+from weed.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from weed.consensus.blockchain import Blockchain, ReceiveBlockResult
+from weed.consensus.coinbase import create_farmer_coin, create_pool_coin
+from weed.full_node.block_store import BlockStore
+from weed.full_node.coin_store import CoinStore
+from weed.full_node.mempool_check_conditions import get_name_puzzle_conditions
+from weed.types.blockchain_format.coin import Coin
+from weed.types.coin_record import CoinRecord
+from weed.types.full_block import FullBlock
+from weed.types.generator_types import BlockGenerator
+from weed.util.generator_tools import tx_removals_and_additions
+from weed.util.ints import uint64, uint32
 from tests.wallet_tools import WalletTool
-from peas.util.db_wrapper import DBWrapper
+from weed.util.db_wrapper import DBWrapper
 from tests.setup_nodes import bt, test_constants
 
 

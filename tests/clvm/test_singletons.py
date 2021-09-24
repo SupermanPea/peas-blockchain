@@ -4,17 +4,17 @@ from typing import List, Tuple, Optional
 
 from blspy import AugSchemeMPL, G1Element, G2Element, PrivateKey
 
-from peas.types.blockchain_format.program import Program
-from peas.types.blockchain_format.sized_bytes import bytes32
-from peas.types.blockchain_format.coin import Coin
-from peas.types.coin_spend import CoinSpend
-from peas.types.spend_bundle import SpendBundle
-from peas.util.errors import Err
-from peas.util.condition_tools import ConditionOpcode
-from peas.util.ints import uint64
-from peas.consensus.default_constants import DEFAULT_CONSTANTS
-from peas.wallet.lineage_proof import LineageProof
-from peas.wallet.puzzles import (
+from weed.types.blockchain_format.program import Program
+from weed.types.blockchain_format.sized_bytes import bytes32
+from weed.types.blockchain_format.coin import Coin
+from weed.types.coin_spend import CoinSpend
+from weed.types.spend_bundle import SpendBundle
+from weed.util.errors import Err
+from weed.util.condition_tools import ConditionOpcode
+from weed.util.ints import uint64
+from weed.consensus.default_constants import DEFAULT_CONSTANTS
+from weed.wallet.lineage_proof import LineageProof
+from weed.wallet.puzzles import (
     p2_conditions,
     p2_delegated_puzzle_or_hidden_puzzle,
     singleton_top_layer,
@@ -25,14 +25,14 @@ from tests.clvm.test_puzzles import (
     secret_exponent_for_index,
 )
 
-from peas.clvm.spend_sim import SpendSim, SimClient
+from weed.clvm.spend_sim import SpendSim, SimClient
 
 """
 This test suite aims to test:
-    - peas.wallet.puzzles.singleton_top_layer.py
-    - peas.wallet.puzzles.singleton_top_layer.clvm
-    - peas.wallet.puzzles.p2_singleton.clvm
-    - peas.wallet.puzzles.p2_singleton_or_delayed_puzhash.clvm
+    - weed.wallet.puzzles.singleton_top_layer.py
+    - weed.wallet.puzzles.singleton_top_layer.clvm
+    - weed.wallet.puzzles.p2_singleton.clvm
+    - weed.wallet.puzzles.p2_singleton_or_delayed_puzhash.clvm
 """
 
 

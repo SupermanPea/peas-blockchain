@@ -1,9 +1,9 @@
-from peas.server.outbound_message import NodeType
-from peas.server.server import ssl_context_for_server
-from peas.types.peer_info import PeerInfo
+from weed.server.outbound_message import NodeType
+from weed.server.server import ssl_context_for_server
+from weed.types.peer_info import PeerInfo
 from tests.block_tools import create_block_tools
-from peas.util.ints import uint16
-from peas.util.ws_message import create_payload
+from weed.util.ints import uint16
+from weed.util.ws_message import create_payload
 from tests.core.node_height import node_height_at_least
 from tests.setup_nodes import setup_daemon, self_hostname, setup_full_system
 from tests.simulation.test_simulation import test_constants_modified
@@ -102,7 +102,7 @@ class TestDaemon:
 
         read_handler = asyncio.create_task(reader(ws, message_queue))
         data = {}
-        payload = create_payload("get_blockchain_state", data, service_name, "peas_full_node")
+        payload = create_payload("get_blockchain_state", data, service_name, "weed_full_node")
         await ws.send_str(payload)
 
         await asyncio.sleep(5)

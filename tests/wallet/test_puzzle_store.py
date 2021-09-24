@@ -6,11 +6,11 @@ import aiosqlite
 import pytest
 from blspy import AugSchemeMPL
 
-from peas.util.db_wrapper import DBWrapper
-from peas.util.ints import uint32
-from peas.wallet.derivation_record import DerivationRecord
-from peas.wallet.util.wallet_types import WalletType
-from peas.wallet.wallet_puzzle_store import WalletPuzzleStore
+from weed.util.db_wrapper import DBWrapper
+from weed.util.ints import uint32
+from weed.wallet.derivation_record import DerivationRecord
+from weed.wallet.util.wallet_types import WalletType
+from weed.wallet.wallet_puzzle_store import WalletPuzzleStore
 
 
 @pytest.fixture(scope="module")

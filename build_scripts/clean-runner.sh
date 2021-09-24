@@ -3,10 +3,10 @@
 
 rm -rf ../venv || true
 rm -rf venv || true
-rm -rf peas_blockchain.egg-info || true
+rm -rf weed_blockchain.egg-info || true
 rm -rf build_scripts/final_installer || true
 rm -rf build_scripts/dist || true
 rm -rf build_scripts/pyinstaller || true
-rm -rf peas-blockchain-gui/build || true
-rm -rf peas-blockchain-gui/daemon || true
-rm -rf peas-blockchain-gui/node_modules || true
+rm -rf weed-blockchain-gui/build || true
+rm -rf weed-blockchain-gui/daemon || true
+rm -rf weed-blockchain-gui/node_modules || true
