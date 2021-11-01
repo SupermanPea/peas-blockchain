@@ -23,7 +23,7 @@ network_overrides: &network_overrides
   config:
     mainnet:
       address_prefix: "pea"
-      default_full_node_port: 3838
+      default_full_node_port: 5838
     testnet0:
       address_prefix: "pea"
 
@@ -110,7 +110,7 @@ farmer:
   # The farmer will attempt to connect to this full node and harvester
   full_node_peer:
     host: *self_hostname
-    port: 3838
+    port: 5838
   harvester_peer:
     host: *self_hostname
     port: 8338
@@ -157,7 +157,7 @@ timelord:
       - 150000
   full_node_peer:
       host: *self_hostname
-      port: 3838
+      port: 5838
   # Maximum number of seconds allowed for a client to reconnect to the server.
   max_connection_time: 60
   # The ip and port where the TCP clients will connect.
@@ -190,7 +190,7 @@ timelord:
     public_key:  "config/ssl/timelord/public_timelord.key"
 full_node:
   # The full node server (if run) will run on this port
-  port: 3838
+  port: 5838
   # Run multiple nodes with different databases by changing the database_path
   database_path: db/blockchain_v1_CHALLENGE.sqlite
   peer_db_path: db/peer_table_node.sqlite
@@ -246,7 +246,7 @@ full_node:
       port: 8336
   introducer_peer:
       host: introducer.peas.net  # Peas AWS introducer IPv4/IPv6
-      port: 3838
+      port: 5838
   wallet_peer:
     host: *self_hostname
     port: 8339
@@ -309,7 +309,7 @@ wallet:
 
   full_node_peer:
     host: *self_hostname
-    port: 3838
+    port: 5838
 
   testing: False
   database_path: wallet/db/blockchain_wallet_v1_CHALLENGE_KEY.sqlite
@@ -327,7 +327,7 @@ wallet:
 
   introducer_peer:
     host: introducer.peas.net # Peas AWS introducer IPv4/IPv6
-    port: 3838
+    port: 5838
 
   ssl:
     private_crt:  "config/ssl/wallet/private_wallet.crt"
